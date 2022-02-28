@@ -1,4 +1,5 @@
 
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
 	rel="stylesheet" 
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
@@ -13,9 +14,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <form class="d-flex">
-      
-        <input class="form-control me-1" type="search" placeholder="Scrivi il titolo del tuo soap-it.." aria-label="Search">
+        <input class="form-control me-1" type="search" placeholder="Scrivi una categoria..." aria-label="Search">
         <button class="btn btn-outline-success" type="submit" >Cerca</button>
+		</svg>
       </form>
     </div>
   </div>
