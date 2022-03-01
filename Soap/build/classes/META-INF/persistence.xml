@@ -3,7 +3,7 @@
 	<persistence-unit name="Soap">
 		<class>model.Categorie</class>
 		<class>model.Postit</class>
-		<class>model.Utenti</class>
+		<class>model.Utenti</class>	
 	<properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/progettosoap" />

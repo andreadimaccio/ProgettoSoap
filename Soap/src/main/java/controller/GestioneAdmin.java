@@ -16,7 +16,7 @@ import javax.persistence.Persistence;
 import model.Utenti;
 
 
-@WebServlet("/gestioneadmin")
+@WebServlet(name= "GestioneAdmin" , urlPatterns = "/GestioneAdmin")
 public class GestioneAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	EntityManagerFactory emf;

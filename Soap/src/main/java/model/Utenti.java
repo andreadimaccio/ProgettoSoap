@@ -120,6 +120,5 @@ public class Utenti implements Serializable {
 		postit.setUtenti(null);
 
 		return postit;
-	}
-
+	}	
 }

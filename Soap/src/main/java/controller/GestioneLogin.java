@@ -14,7 +14,8 @@ import javax.persistence.Persistence;
 import model.Utenti;
 
 
-@WebServlet("/gestionelogin")
+@WebServlet(name= "GestioneLogin" , urlPatterns = "/GestioneLogin")
+
 public class GestioneLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	EntityManagerFactory emf;
@@ -30,6 +31,11 @@ public class GestioneLogin extends HttpServlet {
         emf = Persistence.createEntityManagerFactory("Soap");
         em = emf.createEntityManager();
     }
+    
+    @Override
+	public void init() throws ServletException {
+		super.init();
+	}
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/gestioneutente")
+@WebServlet(name= "GestioneUtente" , urlPatterns = "/GestioneUtente")
 public class GestioneUtente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
