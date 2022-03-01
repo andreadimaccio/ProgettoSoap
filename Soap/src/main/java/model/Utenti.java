@@ -100,14 +100,12 @@ public class Utenti implements Serializable {
 	public Postit addPostit(Postit postit) {
 		getPostits().add(postit);
 		postit.setUtenti(this);
-
 		return postit;
 	}
 
 	public Postit removePostit(Postit postit) {
 		getPostits().remove(postit);
 		postit.setUtenti(null);
-
 		return postit;
 	}
 
