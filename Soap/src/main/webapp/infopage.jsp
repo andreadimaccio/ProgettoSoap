@@ -4,7 +4,7 @@
 
 
 <div class=" text-center vw-100" style="height: 300px;">
-<img  alt="logo" class="h-75 my-3" src="https://github.com/andreadimaccio/ProgettoSoap/blob/main/saponettagialla.png?raw=true">
+<img  alt="logo" class="h-75 my-3" src="https://github.com/andreadimaccio/ProgettoSoap/blob/main/img/saponettagialla.png?raw=true">
 <h4 >Sistema Organizzativo Altamente Personalizzato</h4 >
 </div>
 
