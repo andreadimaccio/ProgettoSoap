@@ -4,7 +4,7 @@ Contiene il link al login ed il link alla pagina registrazione -->
 
 
 <div>
-	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFAB73;">
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FDA65D;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"></a>
     <!-- <img src="" alt="" width="60" height="44" class="d-inline-block align-text-top">
