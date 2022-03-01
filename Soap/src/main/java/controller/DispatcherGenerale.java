@@ -27,8 +27,12 @@ public class DispatcherGenerale extends HttpServlet {
 		String action = request.getParameter("action");
 		if(action != null && action.equals("registrazione")) {
 			request.getServletContext().getRequestDispatcher("/registrazione.jsp").forward(request, response);
-		} else {
+		} 
+		else if(action != null && action.equals("login")){
 			request.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+		}
+		else {
+			request.getServletContext().getRequestDispatcher("/infopage.jsp").forward(request, response);
 		}
 	}
 
