@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.Date;
 
 
 /**
@@ -14,14 +15,17 @@ public class Postit implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_postit")
 	private int idPostit;
 
+	@Temporal(TemporalType.DATE)
 	@Column(name="data_inserimento_postit")
-	private String dataInserimentoPostit;
+	private Date dataInserimentoPostit;
 
+	@Temporal(TemporalType.DATE)
 	@Column(name="data_promemoria_postit")
-	private String dataPromemoriaPostit;
+	private Date dataPromemoriaPostit;
 
 	@Lob
 	@Column(name="testo_postit")
@@ -51,19 +55,19 @@ public class Postit implements Serializable {
 		this.idPostit = idPostit;
 	}
 
-	public String getDataInserimentoPostit() {
+	public Date getDataInserimentoPostit() {
 		return this.dataInserimentoPostit;
 	}
 
-	public void setDataInserimentoPostit(String dataInserimentoPostit) {
+	public void setDataInserimentoPostit(Date dataInserimentoPostit) {
 		this.dataInserimentoPostit = dataInserimentoPostit;
 	}
 
-	public String getDataPromemoriaPostit() {
+	public Date getDataPromemoriaPostit() {
 		return this.dataPromemoriaPostit;
 	}
 
-	public void setDataPromemoriaPostit(String dataPromemoriaPostit) {
+	public void setDataPromemoriaPostit(Date dataPromemoriaPostit) {
 		this.dataPromemoriaPostit = dataPromemoriaPostit;
 	}
 
