@@ -1,5 +1,7 @@
-<%@ include file="header.jsp"%>
-
+<%@ include file = "header.jsp"%>
+<%@ page import = "java.util.ArrayList" %>
+<%@ page import = "model.Utenti" %>
+<%ArrayList<Utenti> utentiDaInserire = (ArrayList<Utenti>) request.getAttribute("nuoviutenti"); %>
 <div class="container my-3">
 	<h1>Utenti da approvare</h1>
 	<table class="table table-striped table-hover">
@@ -11,12 +13,14 @@
 			</thead>
 			<tbody>
 			<tr>
+			<% for(Utenti u : utentiDaInserire){%>							
 			 	<td scope="col">Nome</th>
 				<td scope="col">Cognome</th>
 			
 			<a class="btn btn-success btn-sm" role="button"><i class="bi bi-person-check-fill"></i></a>
 			<a class="btn btn-danger btn-sm" role="button"><i class="bi bi-person-x-fill"></i></a></tbody>
 			</tr>
+			<%}%>
 			</tbody>
 		
 	</table>

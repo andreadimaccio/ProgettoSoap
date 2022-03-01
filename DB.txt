@@ -1,28 +1,36 @@
-CREATE DATABASE progettosoap IF NOT EXIST;
 
-CREATE TABLE `progettosoap`.`utenti` (
-  `id_utente` INT NOT NULL AUTO_INCREMENT,
-  `nome_utente` VARCHAR(45) NOT NULL,
-  `cognome_utente` VARCHAR(45) NOT NULL,
-  `email_utente` VARCHAR(45) NOT NULL UNIQUE,
-  `telefono_utente` VARCHAR(45) NOT NULL UNIQUE,
-  `password_utente` VARCHAR(45) NOT NULL UNIQUE,
-  PRIMARY KEY (`id_utente`));
+CREATE DATABASE IF NOT EXISTS progettosoap;
 
-
-CREATE TABLE `progettosoap`.`postit` (
-  `id_postit` INT NOT NULL AUTO_INCREMENT,
-  `titolo_postit` VARCHAR(45) NOT NULL,
-  `data_inserimento_postit` VARCHAR(45) NOT NULL,
-  `data_promemoria_postit` VARCHAR(45) NOT NULL,
-  `testo_postit` TEXT(200) NOT NULL,
-  `categoria_postit` INT NULL,
+CREATE TABLE IF NOT exists`categorie` (
+  `id_categoria` int NOT NULL AUTO_INCREMENT,
+  `nome_categoria` varchar(45) NOT NULL,
+  `colore_categoria` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_categoria`)
+);
+CREATE TABLE `utenti` (
+  `id_utente` int NOT NULL AUTO_INCREMENT,
+  `nome_utente` varchar(45) NOT NULL,
+  `cognome_utente` varchar(45) NOT NULL,
+  `email_utente` varchar(45) NOT NULL,
+  `telefono_utente` varchar(45) NOT NULL,
+  `password_utente` varchar(45) NOT NULL,
+  `accettato` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_utente`),
+  UNIQUE KEY `email_utente` (`email_utente`),
+  UNIQUE KEY `telefono_utente` (`telefono_utente`),
+  UNIQUE KEY `password_utente` (`password_utente`)
+);
+CREATE TABLE IF NOT EXISTS `postit` (
+  `id_postit` int NOT NULL AUTO_INCREMENT,
+  `titolo_postit` varchar(45) NOT NULL,
+  `data_inserimento_postit` date NOT NULL,
+  `data_promemoria_postit` date NOT NULL,
+  `testo_postit` text NOT NULL,
+  `categoria_postit` int NOT NULL,
+  `utente_postit` int NOT NULL,
   PRIMARY KEY (`id_postit`),
-  FOREIGN KEY (`utente_postit`) REFERENCES `progettosoap`.`utenti` (`id_utente`) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (`categoria_postit`) REFERENCES `progettosoap`.`categoria` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE );
-
-CREATE TABLE `progettosoap`.`categoria` (
-  `id_categoria` INT NOT NULL AUTO_INCREMENT,
-  `nome_categoria` VARCHAR(45) NOT NULL,
-  `colore_categoria` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_categoria`));
+  KEY `utente_postit` (`utente_postit`),
+  KEY `categoria_postit` (`categoria_postit`),
+  CONSTRAINT `postit_ibfk_1` FOREIGN KEY (`utente_postit`) REFERENCES `utenti` (`id_utente`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `postit_ibfk_2` FOREIGN KEY (`categoria_postit`) REFERENCES `categorie` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE
+)
