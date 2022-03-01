@@ -57,5 +57,6 @@ public class GestioneAdmin extends HttpServlet {
 		em.persist(u);
 		em.getTransaction().commit();
 		utentiDaInserire = (ArrayList<Utenti>)getAllUtentiInattivi();
+		request.setAttribute("nuoviutenti", utentiDaInserire);
 	}
 }
