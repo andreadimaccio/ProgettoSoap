@@ -10,3 +10,8 @@
 
 </body>
 </html>
+
+<!-- <form>
+	<label for="soap">Inserisci una data e un giorno per il nuovo
+		SOAP:</label> <input id="soap" type="datetime-local" name="soap">
+</form> -->
