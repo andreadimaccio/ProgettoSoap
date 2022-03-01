@@ -2,10 +2,6 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
-import controller.Query;
-import controller.Utenti;
-
 import java.util.List;
 
 
