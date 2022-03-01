@@ -12,14 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-<<<<<<< HEAD
 import model.Postit;
 import model.Utenti;
-=======
-
->>>>>>> 6c3d6db6b7196f519c3a6b942b8ee8fe369a34bc
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Utenti;
 
 
-@WebServlet("/dispatcherinfo")
+@WebServlet(name= "DispatcherInfo" , urlPatterns = "/DispatcherInfo")
 public class DispatcherInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -17,6 +17,11 @@ public class DispatcherInfo extends HttpServlet {
     public DispatcherInfo() {
         super();   
     }
+    
+    @Override
+	public void init() throws ServletException {
+		super.init();
+	}
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
