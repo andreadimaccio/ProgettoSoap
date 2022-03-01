@@ -15,6 +15,7 @@ public class Utenti implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_utente")
 	private int idUtente;
 
@@ -99,12 +100,14 @@ public class Utenti implements Serializable {
 	public Postit addPostit(Postit postit) {
 		getPostits().add(postit);
 		postit.setUtenti(this);
+
 		return postit;
 	}
 
 	public Postit removePostit(Postit postit) {
 		getPostits().remove(postit);
 		postit.setUtenti(null);
+
 		return postit;
 	}
 
