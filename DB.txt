@@ -1,0 +1,28 @@
+CREATE DATABASE progettosoap IF NOT EXIST;
+
+CREATE TABLE `progettosoap`.`utenti` (
+  `id_utente` INT NOT NULL AUTO_INCREMENT,
+  `nome_utente` VARCHAR(45) NOT NULL,
+  `cognome_utente` VARCHAR(45) NOT NULL,
+  `email_utente` VARCHAR(45) NOT NULL UNIQUE,
+  `telefono_utente` VARCHAR(45) NOT NULL UNIQUE,
+  `password_utente` VARCHAR(45) NOT NULL UNIQUE,
+  PRIMARY KEY (`id_utente`));
+
+
+CREATE TABLE `progettosoap`.`postit` (
+  `id_postit` INT NOT NULL AUTO_INCREMENT,
+  `titolo_postit` VARCHAR(45) NOT NULL,
+  `data_inserimento_postit` VARCHAR(45) NOT NULL,
+  `data_promemoria_postit` VARCHAR(45) NOT NULL,
+  `testo_postit` TEXT(200) NOT NULL,
+  `categoria_postit` INT NULL,
+  PRIMARY KEY (`id_postit`),
+  FOREIGN KEY (`utente_postit`) REFERENCES `progettosoap`.`utenti` (`id_utente`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`categoria_postit`) REFERENCES `progettosoap`.`categoria` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE );
+
+CREATE TABLE `progettosoap`.`categoria` (
+  `id_categoria` INT NOT NULL AUTO_INCREMENT,
+  `nome_categoria` VARCHAR(45) NOT NULL,
+  `colore_categoria` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_categoria`));
