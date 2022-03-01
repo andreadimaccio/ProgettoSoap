@@ -1,4 +1,5 @@
 <%@ include file="header.jsp"%>
+<%@ include file="infonav.jsp" %>
 
 <h1 class="text-center" style="margin-top: 100px;">Registati</h1>
 <div class="container" style="width: 500px; margin-top: 20px;">
@@ -20,8 +21,7 @@
 				class="form-control" id="password" placeholder="">
 		</div>
 		<div class="mb-3 ">
-			<button type="submit" class="btn btn-warning ">Accedi</button>
-			<a class="btn btn-warning" href="registrazione.jsp" role="button">Registrazione</a>
+			<button type="submit" class="btn btn-warning" style="background-color: #FDA65D;">Registrati</button>
 		</div>
 	</form>
 

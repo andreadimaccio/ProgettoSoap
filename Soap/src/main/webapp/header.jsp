@@ -4,7 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<title>SOAP-IT</title>
+	
+	
 	
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet"
