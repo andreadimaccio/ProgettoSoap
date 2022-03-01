@@ -32,22 +32,17 @@ public class DispatcherGenerale extends HttpServlet {
 		}
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getParameter("action") != null && request.getParameter("action").equalsIgnoreCase("registrazione")) {
+		if(request.getParameter("action") != null && request.getParameter("action").equals("registrazione")) {
 			request.getServletContext().getNamedDispatcher("GestioneRegistrazione").include(request, response);	
-			request.getServletContext().getNamedDispatcher("GestioneAdmin").include(request, response);
-			response.sendRedirect("dispatcherinfo");
+			request.getServletContext().getNamedDispatcher("GestioneAdmin").include(request, response);			
 			//rimanda su infopage
 		}
-		else if(request.getParameter("action") != null && request.getParameter("action").equalsIgnoreCase("login")) {
+		else if(request.getParameter("action") != null && request.getParameter("action").equals("login")) {
 			request.getServletContext().getNamedDispatcher("GestioneLogin").include(request, response);	
-			response.sendRedirect("dispatcherhome");
 			// rimanda su homepageutente NON HOME
-		}	
-		else {
-		response.sendRedirect("dispatcherinfo");
 		}
+		response.sendRedirect("dispatcherinfo");
 	}
 
 }
