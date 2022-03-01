@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/gestionesoap")
+@WebServlet(name= "GestioneSoap" , urlPatterns = "/GestioneSoap")
 public class GestioneSoap extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	EntityManagerFactory emf;
