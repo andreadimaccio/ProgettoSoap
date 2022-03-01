@@ -2,6 +2,10 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import controller.Query;
+import controller.Utenti;
+
 import java.util.List;
 
 
@@ -100,14 +104,12 @@ public class Utenti implements Serializable {
 	public Postit addPostit(Postit postit) {
 		getPostits().add(postit);
 		postit.setUtenti(this);
-
 		return postit;
 	}
 
 	public Postit removePostit(Postit postit) {
 		getPostits().remove(postit);
 		postit.setUtenti(null);
-
 		return postit;
 	}
 
