@@ -36,27 +36,25 @@ public class GestioneAdmin extends HttpServlet {
 	}
 	
 	private List<Utenti> getAllUtentiInattivi() {
-		Query q = em.createQuery("SELECT u FROM utenti WHERE accettato = " + 0);
+		Query q = em.createQuery("SELECT u FROM Utenti u WHERE u.accettato = " + false);
 		return q.getResultList();
 	}
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		if(request.getParameter("action") != null && request.getParameter("action").equals("aggiungi")) {
-			utentiDaInserire.get(Integer.parseInt("aggiungi")).setAccettato((byte)1);
+			utentiDaInserire.get(Integer.parseInt("aggiungi")).setAccettato(true);
 			utentiDaInserire.remove(Integer.parseInt("aggiungi"));
 		}
 		else if(request.getParameter("action") != null && request.getParameter("action").equals("rifiuta")) {
 			utentiDaInserire.remove(Integer.parseInt("rifiuta"));
 		}
+		utentiDaInserire.addAll(getAllUtentiInattivi());
+		request.setAttribute("nuoviutenti", utentiDaInserire);
+		System.out.println(utentiDaInserire.size());
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Utenti u = (Utenti)request.getAttribute("nuovoutente");
-		em.getTransaction().begin();
-		em.persist(u);
-		em.getTransaction().commit();
-		utentiDaInserire = (ArrayList<Utenti>)getAllUtentiInattivi();
-		request.setAttribute("nuoviutenti", utentiDaInserire);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {				
+		
 	}
 }
