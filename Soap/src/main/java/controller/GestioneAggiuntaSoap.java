@@ -25,12 +25,12 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet(name= "GestioneSoap" , urlPatterns = "/GestioneSoap")
-public class GestioneSoap extends HttpServlet {
+public class GestioneAggiuntaSoap extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	EntityManagerFactory emf;
 	EntityManager em;
 
-    public GestioneSoap() {
+    public GestioneAggiuntaSoap() {
         super();       
     }
     
@@ -49,22 +49,18 @@ public class GestioneSoap extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String titolo = request.getParameter("titolo_postit");
 		String testo = request.getParameter("testo_postit");		
-		LocalDate currentLocalDate = LocalDate.now();
-		ZonedDateTime zonedDateTime = currentLocalDate.atStartOfDay(ZoneId.systemDefault());
-		Date utilDate = (Date) Date.from(zonedDateTime.toInstant());
-		Date dataPromemoria = Date.valueOf(request.getParameter("data_promemoria_postit"));
+		LocalDate dataInserimento = LocalDate.now(); 
+		Date dataPromemoria = Date.valueOf(request.getParameter("data_promemoria_postit"));		
 		
-//		Date parsed = format.parse("data_promemoria_postit");
-//		java.sql.Date dataPromemoria = new java.sql.Date(parsed.getTime());
-
 		if(!titolo.trim().equals("") && 
 				!testo.trim().equals("")  				
 				) {
 			Postit soap = new Postit();
 			soap.setTitoloPostit(titolo);
 			soap.setTestoPostit(testo);
-			soap.setDataInserimento(utilDate);
+			soap.setDataInserimento(dataInserimento);
 			soap.setDataPromemoria(dataPromemoria);
+			addSoapit(soap);
 		}
 	}
 	
