@@ -19,7 +19,6 @@ public class Utenti implements Serializable {
 	@Column(name="id_utente")
 	private int idUtente;
 
-	@Column(name="accettato")
 	private byte accettato;
 
 	@Column(name="cognome_utente")
@@ -120,5 +119,6 @@ public class Utenti implements Serializable {
 		postit.setUtenti(null);
 
 		return postit;
-	}	
+	}
+
 }
