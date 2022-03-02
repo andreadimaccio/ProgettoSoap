@@ -29,15 +29,20 @@ public class GestioneAdmin extends HttpServlet {
     
 	@Override
 	public void init() throws ServletException {
-		super.init();
+		super.init();		
 		utentiDaInserire = new ArrayList<Utenti>();
 		  emf = Persistence.createEntityManagerFactory("Soap");
 	      em = emf.createEntityManager();
 	}
 	
-	private List<Utenti> getAllUtentiInattivi() {
+	private ArrayList<Utenti> getAllUtentiInattivi() {
 		Query q = em.createQuery("SELECT u FROM Utenti u WHERE u.accettato = " + false);
-		return q.getResultList();
+		ArrayList<Utenti> lista = new ArrayList<Utenti>();
+		for (Object o : q.getResultList()) {
+			Utenti u = (Utenti)o;
+			lista.add(u);
+		}
+		return lista;
 	}
 
 
@@ -49,7 +54,7 @@ public class GestioneAdmin extends HttpServlet {
 		else if(request.getParameter("action") != null && request.getParameter("action").equals("rifiuta")) {
 			utentiDaInserire.remove(Integer.parseInt("rifiuta"));
 		}
-		utentiDaInserire.addAll(getAllUtentiInattivi());
+		utentiDaInserire = getAllUtentiInattivi();
 		request.setAttribute("nuoviutenti", utentiDaInserire);
 		System.out.println(utentiDaInserire.size());
 	}

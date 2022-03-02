@@ -2,7 +2,11 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.mysql.cj.xdevapi.Type;
+
 import java.util.Date;
+import java.time.LocalDate;
 
 
 /**
@@ -19,9 +23,9 @@ public class Postit implements Serializable {
 	@Column(name="id_postit")
 	private int idPostit;
 
-	@Temporal(TemporalType.DATE)
+
 	@Column(name="data_inserimento")
-	private Date dataInserimento;
+	private LocalDate dataInserimento;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="data_promemoria")
@@ -55,11 +59,11 @@ public class Postit implements Serializable {
 		this.idPostit = idPostit;
 	}
 
-	public Date getDataInserimento() {
+	public LocalDate getDataInserimento() {
 		return this.dataInserimento;
 	}
 
-	public void setDataInserimento(Date dataInserimento) {
+	public void setDataInserimento(LocalDate dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 

@@ -35,7 +35,7 @@ public class DispatcherGenerale extends HttpServlet {
 			request.getServletContext().getRequestDispatcher("/infopage.jsp").forward(request, response);
 		}
 	}
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("action") != null && request.getParameter("action").equals("registrazione")) {
 			request.getServletContext().getNamedDispatcher("GestioneRegistrazione").include(request, response);				
