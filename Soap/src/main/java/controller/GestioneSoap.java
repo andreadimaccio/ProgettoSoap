@@ -2,6 +2,9 @@ package controller;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -45,12 +48,14 @@ public class GestioneSoap extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String titolo = request.getParameter("titolo_postit");
-		String testo = request.getParameter("testo_postit");
-		Date dataInserimento = Date.valueOf(request.getParameter("data_inserimento_postit"));
+		String testo = request.getParameter("testo_postit");		
+		LocalDate currentLocalDate = LocalDate.now();
+		ZonedDateTime zonedDateTime = currentLocalDate.atStartOfDay(ZoneId.systemDefault());
+		Date utilDate = (Date) Date.from(zonedDateTime.toInstant());
 		Date dataPromemoria = Date.valueOf(request.getParameter("data_promemoria_postit"));
 		
-//		Date parsed = format.parse("20110210");
-//		java.sql.Date sql = new java.sql.Date(parsed.getTime());
+//		Date parsed = format.parse("data_promemoria_postit");
+//		java.sql.Date dataPromemoria = new java.sql.Date(parsed.getTime());
 
 		if(!titolo.trim().equals("") && 
 				!testo.trim().equals("")  				
@@ -58,7 +63,7 @@ public class GestioneSoap extends HttpServlet {
 			Postit soap = new Postit();
 			soap.setTitoloPostit(titolo);
 			soap.setTestoPostit(testo);
-			soap.setDataInserimento(dataInserimento);
+			soap.setDataInserimento(utilDate);
 			soap.setDataPromemoria(dataPromemoria);
 		}
 	}
