@@ -5,7 +5,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light"
 		style="background-color: #FDA65D;">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="dispatchergenerale?action=infopage">
+			<a class="navbar-brand" href="dispatchergenerale?action=homepageutente">
 			<img src="https://github.com/andreadimaccio/ProgettoSoap/blob/main/img/saponettagialla.png?raw=true"
 				alt="logo" width="80" height="78"
 				class="d-inline-block align-text-top"> 
