@@ -3,7 +3,8 @@
 
 <h1 class="text-center" style="margin-top: 100px;">Registrati</h1>
 <div class="container" style="width: 500px; margin-top: 20px;">
-	<form class="px-4 py-3" action="dispatchergenerale?action=registrazione" method="post" >
+	<form class="px-4 py-3"
+		action="dispatchergenerale?action=registrazione" method="post">
 		<div class="mb-3">
 			<label class="form-label">Nome</label> <input type="text"
 				class="form-control" name="nome_utente" id="email" placeholder="">
@@ -18,15 +19,23 @@
 		</div>
 		<div class="mb-3">
 			<label class="form-label">Password</label> <input type="password"
-				class="form-control" name="password_utente" id="password" placeholder="">
+				class="form-control" name="password_utente" id="password"
+				placeholder="">
 		</div>
 		<div class="mb-3">
 			<label class="form-label">Telefono</label> <input type="text"
 				class="form-control" name="telefono_utente" id="telefono" placeholder="">
 		</div>
 		<div class="mb-3 ">
+<<<<<<< HEAD
+			<button type="submit" class="btn btn-warning"
+				style="background-color: #FDA65D;">
+				<a href="dispatchergenerale?action=login">Login</a>
+			</button>
+=======
 			<button type="submit" class="btn btn-warning" style="background-color: #FDA65D;" >
 			Registrazione</button>
+>>>>>>> 6c662bcfb4842a93d213c2ad7e407557ef91a43d
 		</div>
 	</form>
 

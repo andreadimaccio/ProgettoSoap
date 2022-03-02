@@ -6,7 +6,8 @@
 <div class=" text-center vw-100" style="height: 300px;">
 	<img alt="logo" class="h-75 my-3"
 		src="https://github.com/andreadimaccio/ProgettoSoap/blob/main/img/saponettagialla.png?raw=true">
-	<h1 data-element-page-location="hero" data-element-type="heading" class="css-uztxc6-heading ewh6f260">Soap-it</h1>
+	<h1 data-element-page-location="hero" data-element-type="heading"
+		class="css-uztxc6-heading ewh6f260">Soap-it</h1>
 </div>
 
 

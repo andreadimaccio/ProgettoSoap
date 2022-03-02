@@ -58,8 +58,8 @@ public class GestioneSoap extends HttpServlet {
 			Postit soap = new Postit();
 			soap.setTitoloPostit(titolo);
 			soap.setTestoPostit(testo);
-			soap.setDataInserimentoPostit(dataInserimento);
-			soap.setDataPromemoriaPostit(dataPromemoria);
+			soap.setDataInserimento(dataInserimento);
+			soap.setDataPromemoria(dataPromemoria);
 		}
 	}
 	
