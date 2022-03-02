@@ -3,7 +3,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ include file="header.jsp"%>
 
-<%
+<%-- <%
 	int id = Integer.parseInt(request.getParameter("edit"));
 	ArrayList<User> lista = GestioneLogin.userlist == null ? GestioneLogin.DB.leggiUsers() : GestioneLogin.userlist;
 	User editUser = null;
@@ -13,7 +13,7 @@
 			break;
 		}
 	}
-%>
+%> --%>
 
 <% if(editUser != null) { %>
 <div class="container my-3">
@@ -44,7 +44,7 @@
 		</div>
 	</form>
 </div>
-
+<% } %>
 
 
 <%@ include file="footer.jsp"%>

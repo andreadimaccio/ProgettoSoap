@@ -1,14 +1,13 @@
-<<<<<<< HEAD
+
 <%@ include file = "header.jsp"%>
 <%@ page import = "java.util.ArrayList" %>
 <%@ page import = "model.Utenti" %>
 <% ArrayList<Utenti> listaNuoviUtenti = (ArrayList<Utenti>) request.getAttribute("nuoviutenti"); %>
-=======
 <%@ include file="header.jsp"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="model.Utenti"%>
 <%ArrayList<Utenti> utentiDaInserire = (ArrayList<Utenti>) request.getAttribute("nuoviutenti"); %>
->>>>>>> f19bd282205b51bdcb051d050c10eb009e2ba0cd
+
 <div class="container my-3">
 	<h1>Utenti da approvare</h1>
 	<table class="table table-striped table-hover">
@@ -17,7 +16,7 @@
 				<th scope="col">Nome utente</th>
 				<th scope="col">Cognome utente</th>
 			</tr>
-<<<<<<< HEAD
+
 			</thead>
 			<%for(Utenti u : listaNuoviUtenti){ %>					
 			  <td scope="col"><%= u.getNomeUtente() %></th>
@@ -31,7 +30,6 @@
 			<tbody>			   
 			</tbody>
 		
-=======
 		</thead>
 		<tbody>
 			<tr>
@@ -50,7 +48,7 @@
 		<%}%>
 		</tbody>
 
->>>>>>> f19bd282205b51bdcb051d050c10eb009e2ba0cd
+
 	</table>
 </div>
 
