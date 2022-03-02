@@ -20,9 +20,13 @@
 			<label class="form-label">Password</label> <input type="password"
 				class="form-control" name="password_utente" id="password" placeholder="">
 		</div>
+		<div class="mb-3">
+			<label class="form-label">Telefono</label> <input type="text"
+				class="form-control" name="telefono_utente" id="telefono" placeholder="">
+		</div>
 		<div class="mb-3 ">
 			<button type="submit" class="btn btn-warning" style="background-color: #FDA65D;" >
-			<a href="dispatchergenerale?action=login">Login</a></button>
+			Registrazione</button>
 		</div>
 	</form>
 

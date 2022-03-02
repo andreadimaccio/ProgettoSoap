@@ -32,17 +32,20 @@ public class GestioneRegistrazione extends HttpServlet {
 		String cognome = request.getParameter("cognome_utente");
 		String email = request.getParameter("email_utente");
 		String password = request.getParameter("password_utente");
+		String telefono = request.getParameter("telefono_utente");
 		
 		if(!nome.trim().equals("") && 
 				!cognome.trim().equals("") &&  
 				!email.trim().equals("") && 
-				!password.trim().equals("")
+				!password.trim().equals("") &&
+				!telefono.trim().equals("")
 				) {
 			Utenti user = new Utenti();
 			user.setNomeUtente(nome);
 			user.setCognomeUtente(cognome);
 			user.setEmailUtente(email);
 			user.setPasswordUtente(password);
+			user.setTelefonoUtente(telefono);
 			String nuovoutente = "nuovoutente";
 			request.setAttribute(nuovoutente, user);
 		}
