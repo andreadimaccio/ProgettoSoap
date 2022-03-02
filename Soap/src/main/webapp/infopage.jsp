@@ -25,25 +25,15 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+
+
+
 </div>
 </center>
 
-<div class="vw-100 " style="height: 300px;">
-	<div class="h-50 container-sm">
-		<img alt="logo" class="h-100 rounded float-start" style="float: left;"
-			src="https://github.com/andreadimaccio/ProgettoSoap/blob/main/img/postit1.png?raw=true">
-		<p class="text-start py-5">Soap-it del giorno</p>
-	</div>
-	<div class="h-50 container-sm">
-		<img alt="logo" style="float: right;" class="h-100 rounded float-end"
-			src="https://github.com/andreadimaccio/ProgettoSoap/blob/main/img/postit2.png?raw=true">
-		<p class="text-end py-5">Le tue idee in uno spazio igenicamente
-			organizzato</p>
-	</div>
-	<!-- <div style="backgroud-color : #FFFEB7"></div> -->
-</div>
 
 
 
 <%@ include file="infofooter.jsp"%>
 <%@ include file="footer.jsp"%>
+

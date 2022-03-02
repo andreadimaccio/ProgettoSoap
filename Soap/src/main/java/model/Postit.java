@@ -20,12 +20,12 @@ public class Postit implements Serializable {
 	private int idPostit;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="data_inserimento_postit")
-	private Date dataInserimentoPostit;
+	@Column(name="data_inserimento")
+	private Date dataInserimento;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="data_promemoria_postit")
-	private Date dataPromemoriaPostit;
+	@Column(name="data_promemoria")
+	private Date dataPromemoria;
 
 	@Lob
 	@Column(name="testo_postit")
@@ -55,20 +55,20 @@ public class Postit implements Serializable {
 		this.idPostit = idPostit;
 	}
 
-	public Date getDataInserimentoPostit() {
-		return this.dataInserimentoPostit;
+	public Date getDataInserimento() {
+		return this.dataInserimento;
 	}
 
-	public void setDataInserimentoPostit(Date dataInserimentoPostit) {
-		this.dataInserimentoPostit = dataInserimentoPostit;
+	public void setDataInserimento(Date dataInserimento) {
+		this.dataInserimento = dataInserimento;
 	}
 
-	public Date getDataPromemoriaPostit() {
-		return this.dataPromemoriaPostit;
+	public Date getDataPromemoria() {
+		return this.dataPromemoria;
 	}
 
-	public void setDataPromemoriaPostit(Date dataPromemoriaPostit) {
-		this.dataPromemoriaPostit = dataPromemoriaPostit;
+	public void setDataPromemoria(Date dataPromemoria) {
+		this.dataPromemoria = dataPromemoria;
 	}
 
 	public String getTestoPostit() {
