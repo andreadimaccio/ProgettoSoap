@@ -33,4 +33,4 @@ CREATE TABLE IF NOT EXISTS `postit` (
   KEY `categoria_postit` (`categoria_postit`),
   CONSTRAINT `postit_ibfk_1` FOREIGN KEY (`utente_postit`) REFERENCES `utenti` (`id_utente`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `postit_ibfk_2` FOREIGN KEY (`categoria_postit`) REFERENCES `categorie` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE
-)
+);

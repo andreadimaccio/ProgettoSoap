@@ -19,8 +19,9 @@ public class Utenti implements Serializable {
 	@Column(name="id_utente")
 	private int idUtente;
 
+
 	@Column(name="accettato")
-	private byte accettato;
+	private boolean accettato;
 
 	@Column(name="cognome_utente")
 	private String cognomeUtente;
@@ -52,11 +53,11 @@ public class Utenti implements Serializable {
 		this.idUtente = idUtente;
 	}
 
-	public byte getAccettato() {
+	public boolean getAccettato() {
 		return this.accettato;
 	}
 
-	public void setAccettato(byte accettato) {
+	public void setAccettato(boolean accettato) {
 		this.accettato = accettato;
 	}
 
@@ -120,5 +121,6 @@ public class Utenti implements Serializable {
 		postit.setUtenti(null);
 
 		return postit;
-	}	
+	}
+
 }

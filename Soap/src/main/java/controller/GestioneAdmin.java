@@ -25,38 +25,41 @@ public class GestioneAdmin extends HttpServlet {
 	
     public GestioneAdmin() {
         super();
-        emf = Persistence.createEntityManagerFactory("Soap");
-        em = emf.createEntityManager();
     }
     
 	@Override
 	public void init() throws ServletException {
-		super.init();
+		super.init();		
 		utentiDaInserire = new ArrayList<Utenti>();
+		  emf = Persistence.createEntityManagerFactory("Soap");
+	      em = emf.createEntityManager();
 	}
 	
-	private List<Utenti> getAllUtentiInattivi() {
-		Query q = em.createQuery("SELECT u FROM Utenti u where accettato = " + 0);
-		return q.getResultList();
+	private ArrayList<Utenti> getAllUtentiInattivi() {
+		Query q = em.createQuery("SELECT u FROM Utenti u WHERE u.accettato = " + false);
+		ArrayList<Utenti> lista = new ArrayList<Utenti>();
+		for (Object o : q.getResultList()) {
+			Utenti u = (Utenti)o;
+			lista.add(u);
+		}
+		return lista;
 	}
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		if(request.getParameter("action") != null && request.getParameter("action").equals("aggiungi")) {
-			utentiDaInserire.get(Integer.parseInt("aggiungi")).setAccettato((byte)1);
+			utentiDaInserire.get(Integer.parseInt("aggiungi")).setAccettato(true);
 			utentiDaInserire.remove(Integer.parseInt("aggiungi"));
 		}
 		else if(request.getParameter("action") != null && request.getParameter("action").equals("rifiuta")) {
 			utentiDaInserire.remove(Integer.parseInt("rifiuta"));
 		}
+		utentiDaInserire = getAllUtentiInattivi();
+		request.setAttribute("nuoviutenti", utentiDaInserire);
+		System.out.println(utentiDaInserire.size());
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Utenti u = (Utenti)request.getAttribute("nuovoutente");
-		em.getTransaction().begin();
-		em.persist(u);
-		em.getTransaction().commit();
-		utentiDaInserire = (ArrayList<Utenti>)getAllUtentiInattivi();
-		request.setAttribute("nuoviutenti", utentiDaInserire);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {				
+		
 	}
 }

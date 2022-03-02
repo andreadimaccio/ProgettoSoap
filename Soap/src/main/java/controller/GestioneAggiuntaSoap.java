@@ -2,6 +2,9 @@ package controller;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -22,12 +25,12 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet(name= "GestioneSoap" , urlPatterns = "/GestioneSoap")
-public class GestioneSoap extends HttpServlet {
+public class GestioneAggiuntaSoap extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	EntityManagerFactory emf;
 	EntityManager em;
 
-    public GestioneSoap() {
+    public GestioneAggiuntaSoap() {
         super();       
     }
     
@@ -45,21 +48,23 @@ public class GestioneSoap extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String titolo = request.getParameter("titolo_postit");
-		String testo = request.getParameter("testo_postit");
-		Date dataInserimento = Date.valueOf(request.getParameter("data_inserimento_postit"));
-		Date dataPromemoria = Date.valueOf(request.getParameter("data_promemoria_postit"));
-		
-//		Date parsed = format.parse("20110210");
-//		java.sql.Date sql = new java.sql.Date(parsed.getTime());
-
+		String testo = request.getParameter("testo_postit");		
+		LocalDate dataInserimento = LocalDate.now();
+		String anno = request.getParameter("anno");
+		String mese = request.getParameter("mese");
+		String giorno = request.getParameter("giorno");
+		long data = (long)Integer.parseInt(anno + mese + giorno);
+		Date dataPromemoria = new Date(data);
+	
 		if(!titolo.trim().equals("") && 
 				!testo.trim().equals("")  				
 				) {
 			Postit soap = new Postit();
 			soap.setTitoloPostit(titolo);
 			soap.setTestoPostit(testo);
-			soap.setDataInserimentoPostit(dataInserimento);
-			soap.setDataPromemoriaPostit(dataPromemoria);
+			soap.setDataInserimento(dataInserimento);
+			soap.setDataPromemoria(dataPromemoria);
+			addSoapit(soap);
 		}
 	}
 	
@@ -74,12 +79,6 @@ public class GestioneSoap extends HttpServlet {
 		em.getTransaction().begin();
 		em.persist(soap);
 		em.getTransaction().commit();		
-	}
-	
-	private void updateSoap(Postit soap) {
-		em.getTransaction().begin();
-		em.merge(soap);
-		em.getTransaction().commit();
 	}
 	
 	private void removeSoap(Postit soap) {

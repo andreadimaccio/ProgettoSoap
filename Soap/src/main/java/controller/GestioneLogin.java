@@ -21,20 +21,33 @@ public class GestioneLogin extends HttpServlet {
 	EntityManagerFactory emf;
     EntityManager em;
     
-	private Utenti getUtenteLogin(String email, String password) {
-		Query q = em.createQuery("SELECT u FROM Utenti u where u.email_utente = email AND u.password = password ").setParameter("email", email).setParameter("password", password);
-			return em.find(Utenti.class, q.executeUpdate());
-		}
+    private Utenti getUtenteLogin(String email, String password) {
+    	Utenti u = null;    	
+    	try {		    	
+		if(!em.getTransaction().isActive())
+		    em.getTransaction().begin();		
+		Query q = em.createQuery("SELECT u FROM Utenti u WHERE u.emailUtente = :param AND u.passwordUtente = :param1");
+		q.setParameter("param", email);
+		q.setParameter("param1", password);
+		u = (Utenti) q.getSingleResult();
+		em.getTransaction().commit();		
+    	}
+    	catch(Exception e){
+    		
+    	}
+    	return u;
+	}
+
 	
     public GestioneLogin() {   	
         super();  
-        emf = Persistence.createEntityManagerFactory("Soap");
-        em = emf.createEntityManager();
     }
     
     @Override
 	public void init() throws ServletException {
 		super.init();
+		  emf = Persistence.createEntityManagerFactory("Soap");
+	      em = emf.createEntityManager();
 	}
 
 

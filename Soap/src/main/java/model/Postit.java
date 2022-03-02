@@ -2,7 +2,11 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.mysql.cj.xdevapi.Type;
+
 import java.util.Date;
+import java.time.LocalDate;
 
 
 /**
@@ -19,13 +23,13 @@ public class Postit implements Serializable {
 	@Column(name="id_postit")
 	private int idPostit;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="data_inserimento_postit")
-	private Date dataInserimentoPostit;
+
+	@Column(name="data_inserimento")
+	private LocalDate dataInserimento;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="data_promemoria_postit")
-	private Date dataPromemoriaPostit;
+	@Column(name="data_promemoria")
+	private Date dataPromemoria;
 
 	@Lob
 	@Column(name="testo_postit")
@@ -55,20 +59,20 @@ public class Postit implements Serializable {
 		this.idPostit = idPostit;
 	}
 
-	public Date getDataInserimentoPostit() {
-		return this.dataInserimentoPostit;
+	public LocalDate getDataInserimento() {
+		return this.dataInserimento;
 	}
 
-	public void setDataInserimentoPostit(Date dataInserimentoPostit) {
-		this.dataInserimentoPostit = dataInserimentoPostit;
+	public void setDataInserimento(LocalDate dataInserimento) {
+		this.dataInserimento = dataInserimento;
 	}
 
-	public Date getDataPromemoriaPostit() {
-		return this.dataPromemoriaPostit;
+	public Date getDataPromemoria() {
+		return this.dataPromemoria;
 	}
 
-	public void setDataPromemoriaPostit(Date dataPromemoriaPostit) {
-		this.dataPromemoriaPostit = dataPromemoriaPostit;
+	public void setDataPromemoria(Date dataPromemoria) {
+		this.dataPromemoria = dataPromemoria;
 	}
 
 	public String getTestoPostit() {

@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +14,8 @@ import model.Utenti;
 @WebServlet(name= "GestioneRegistrazione" , urlPatterns = "/GestioneRegistrazione")
 public class GestioneRegistrazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	EntityManagerFactory emf;
+    EntityManager em;
        
 
     public GestioneRegistrazione() {
@@ -32,19 +37,23 @@ public class GestioneRegistrazione extends HttpServlet {
 		String cognome = request.getParameter("cognome_utente");
 		String email = request.getParameter("email_utente");
 		String password = request.getParameter("password_utente");
+		String telefono = request.getParameter("telefono_utente");
 		
 		if(!nome.trim().equals("") && 
 				!cognome.trim().equals("") &&  
 				!email.trim().equals("") && 
-				!password.trim().equals("")
+				!password.trim().equals("") &&
+				!telefono.trim().equals("")
 				) {
 			Utenti user = new Utenti();
 			user.setNomeUtente(nome);
 			user.setCognomeUtente(cognome);
 			user.setEmailUtente(email);
 			user.setPasswordUtente(password);
-			String nuovoutente = "nuovoutente";
-			request.setAttribute(nuovoutente, user);
+			user.setTelefonoUtente(telefono);
+			em.getTransaction().begin();
+			em.persist(user);
+			em.getTransaction().commit();
 		}
 	}
 
