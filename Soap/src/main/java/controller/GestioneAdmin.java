@@ -25,18 +25,18 @@ public class GestioneAdmin extends HttpServlet {
 	
     public GestioneAdmin() {
         super();
-        emf = Persistence.createEntityManagerFactory("Soap");
-        em = emf.createEntityManager();
     }
     
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		utentiDaInserire = new ArrayList<Utenti>();
+		  emf = Persistence.createEntityManagerFactory("Soap");
+	      em = emf.createEntityManager();
 	}
 	
 	private List<Utenti> getAllUtentiInattivi() {
-		Query q = em.createQuery("SELECT u FROM Utenti u where accettato = " + 0);
+		Query q = em.createQuery("SELECT u FROM utenti WHERE accettato = " + 0);
 		return q.getResultList();
 	}
 
