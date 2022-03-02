@@ -31,6 +31,11 @@ public class GestioneLogin extends HttpServlet {
         emf = Persistence.createEntityManagerFactory("Soap");
         em = emf.createEntityManager();
     }
+    
+    @Override
+	public void init() throws ServletException {
+		super.init();
+	}
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	

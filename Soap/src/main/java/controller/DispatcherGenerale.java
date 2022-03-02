@@ -46,7 +46,7 @@ public class DispatcherGenerale extends HttpServlet {
 			request.getServletContext().getNamedDispatcher("GestioneLogin").include(request, response);	
 			// rimanda su homepageutente NON HOME
 		}
-		response.sendRedirect("dispatcherinfo");
+		response.sendRedirect("DispatcherInfo");
 	}
 
 }
