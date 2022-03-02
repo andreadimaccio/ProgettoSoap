@@ -19,7 +19,12 @@ public class Utenti implements Serializable {
 	@Column(name="id_utente")
 	private int idUtente;
 
+<<<<<<< HEAD
+	@Column(name="accettato")
+	private boolean accettato;
+=======
 	private byte accettato;
+>>>>>>> f19bd282205b51bdcb051d050c10eb009e2ba0cd
 
 	@Column(name="cognome_utente")
 	private String cognomeUtente;
@@ -51,11 +56,11 @@ public class Utenti implements Serializable {
 		this.idUtente = idUtente;
 	}
 
-	public byte getAccettato() {
+	public boolean getAccettato() {
 		return this.accettato;
 	}
 
-	public void setAccettato(byte accettato) {
+	public void setAccettato(boolean accettato) {
 		this.accettato = accettato;
 	}
 

@@ -22,16 +22,20 @@ public class GestioneLogin extends HttpServlet {
     EntityManager em;
     
     private Utenti getUtenteLogin(String email, String password) {
-		Utenti u;
+    	Utenti u = null;    	
+    	try {		    	
 		if(!em.getTransaction().isActive())
 		    em.getTransaction().begin();		
 		Query q = em.createQuery("SELECT u FROM Utenti u WHERE u.emailUtente = :param AND u.passwordUtente = :param1");
 		q.setParameter("param", email);
 		q.setParameter("param1", password);
 		u = (Utenti) q.getSingleResult();
-		em.getTransaction().commit();
-		return u;
-
+		em.getTransaction().commit();		
+    	}
+    	catch(Exception e){
+    		
+    	}
+    	return u;
 	}
 
 	

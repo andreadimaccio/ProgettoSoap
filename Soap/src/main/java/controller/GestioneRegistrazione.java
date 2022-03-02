@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +14,8 @@ import model.Utenti;
 @WebServlet(name= "GestioneRegistrazione" , urlPatterns = "/GestioneRegistrazione")
 public class GestioneRegistrazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	EntityManagerFactory emf;
+    EntityManager em;
        
 
     public GestioneRegistrazione() {
@@ -46,8 +51,9 @@ public class GestioneRegistrazione extends HttpServlet {
 			user.setEmailUtente(email);
 			user.setPasswordUtente(password);
 			user.setTelefonoUtente(telefono);
-			String nuovoutente = "nuovoutente";
-			request.setAttribute(nuovoutente, user);
+			em.getTransaction().begin();
+			em.persist(user);
+			em.getTransaction().commit();
 		}
 	}
 
