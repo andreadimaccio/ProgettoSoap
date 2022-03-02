@@ -49,9 +49,13 @@ public class GestioneAggiuntaSoap extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String titolo = request.getParameter("titolo_postit");
 		String testo = request.getParameter("testo_postit");		
-		LocalDate dataInserimento = LocalDate.now(); 
-		Date dataPromemoria = Date.valueOf(request.getParameter("data_promemoria_postit"));		
-		
+		LocalDate dataInserimento = LocalDate.now();
+		String anno = request.getParameter("anno");
+		String mese = request.getParameter("mese");
+		String giorno = request.getParameter("giorno");
+		long data = (long)Integer.parseInt(anno + mese + giorno);
+		Date dataPromemoria = new Date(data);
+	
 		if(!titolo.trim().equals("") && 
 				!testo.trim().equals("")  				
 				) {
@@ -75,12 +79,6 @@ public class GestioneAggiuntaSoap extends HttpServlet {
 		em.getTransaction().begin();
 		em.persist(soap);
 		em.getTransaction().commit();		
-	}
-	
-	private void updateSoap(Postit soap) {
-		em.getTransaction().begin();
-		em.merge(soap);
-		em.getTransaction().commit();
 	}
 	
 	private void removeSoap(Postit soap) {
