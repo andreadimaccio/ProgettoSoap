@@ -1,13 +1,15 @@
 <%@ include file="header.jsp"%>
-
 <%@ include file="infonav.jsp"%>
+
 
 
 <div class=" text-center vw-100" style="height: 300px;">
 	<img alt="logo" class="h-75 my-3"
 		src="https://github.com/andreadimaccio/ProgettoSoap/blob/main/img/saponettagialla.png?raw=true">
-	<h4>Sistema Organizzativo Altamente Personalizzato</h4>
+	<h1 data-element-page-location="hero" data-element-type="heading" class="css-uztxc6-heading ewh6f260">Soap-it</h1>
 </div>
+
+
 
 <div class="vw-100 " style="height: 300px;">
 	<div class="h-50 container-sm">
@@ -27,3 +29,6 @@
 <%@ include file="infofooter.jsp"%>
 
 <%@ include file="footer.jsp"%>
+
+
+//S
