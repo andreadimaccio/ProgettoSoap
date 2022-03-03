@@ -31,6 +31,9 @@ public class DispatcherGenerale extends HttpServlet {
 		else if(action != null && action.equals("login")){
 			request.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 		}
+		else if(action != null && action.equals("homepageutente")) {
+			request.getServletContext().getRequestDispatcher("/homepageutente.jsp").forward(request, response);
+		}
 		else {
 			request.getServletContext().getRequestDispatcher("/infopage.jsp").forward(request, response);
 		}
