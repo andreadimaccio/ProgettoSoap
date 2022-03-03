@@ -10,27 +10,20 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/dispatchersoap")
 public class DispatcherSoap extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
     public DispatcherSoap() {
-        super();
-       
+        super();  
     }
-
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("action") != null && request.getParameter("action").equals("aggiungisoap")) {
 			request.getServletContext().getRequestDispatcher("/creasoap.jsp").forward(request, response);
-			request.getServletContext().getNamedDispatcher("GestioneAggiuntaSoap").include(request, response);
-			request.getServletContext().getRequestDispatcher("/rubrica.jsp").forward(request, response);
 		}
-		else {
-			request.getServletContext().getRequestDispatcher("dispatchergenerale").forward(request, response);
-		}
-		
+		else {			
+			response.sendRedirect("dispatchergenerale");
+		}				
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.getServletContext().getNamedDispatcher("GestioneAggiuntaSoap").include(request, response);
+		request.getServletContext().getRequestDispatcher("/bacheca.jsp").forward(request, response);		
 	}
 
 }
