@@ -9,14 +9,16 @@
 			<tr>
 				<th scope="col">Nome utente</th>
 				<th scope="col">Cognome utente</th>
+				<th scope="col"></th>
 			</tr>
 			</thead>						
-			</thead>
 			<%for(Utenti u : listaNuoviUtenti){ %>					
 			  <td scope="col"><%= u.getNomeUtente() %></th>
-			 <td scope="col"><%= u.getCognomeUtente() %></th> 		
+			 <td scope="col"><%= u.getCognomeUtente() %></th>
+			 <td>
 			<a class="btn btn-success btn-sm" role="button"><i class="bi bi-person-check-fill"></i></a>
 			<a class="btn btn-danger btn-sm" role="button"><i class="bi bi-person-x-fill"></i></a></tbody>
+			</td>
 			</tr>
 		 <%}%>			
 			<tbody>			   						
