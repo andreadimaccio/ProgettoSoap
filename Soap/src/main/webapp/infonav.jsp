@@ -10,7 +10,7 @@ Contiene il link al login ed il link alla pagina registrazione -->
 			<a class="navbar-brand" href="dispatchergenerale?action=infopage"><img
 				src="https://github.com/andreadimaccio/ProgettoSoap/blob/main/img/saponettagialla.png?raw=true"
 				alt="logo" width="80" height="78"
-				class="d-inline-block align-text-top"> </a>
+				class="d-inline-block align-text-top mx-3"> </a>
 
 			<div class="navbar" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
