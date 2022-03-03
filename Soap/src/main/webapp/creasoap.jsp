@@ -1,17 +1,62 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@page import="java.time.LocalDate"%>
+<%@page import="model.Categorie"%>
+<%@page import="java.util.ArrayList"%>
+<%@ include file="header.jsp"%>
+<%@ include file="navbar.jsp"%>
 
-</body>
-</html>
 
-<!-- <form>
-	<label for="soap">Inserisci una data e un giorno per il nuovo
-		SOAP:</label> <input id="soap" type="datetime-local" name="soap">
-</form> -->
+
+<h1 class="text-center" style="margin-top: 100px;">Nuovo SOAP-it</h1>
+<div class="container" style="width: 300px; margin-top: 20px;">
+	<form action="/GestioneSoap" method="POST">
+		<div class="mb-3">
+			<label class="form-label">Titolo</label> <input type="text"
+				class="form-control" name="titolo_post" id="titolo_postit"
+				required="required">
+		</div>
+		<div class="mb-3">
+			<label for="categoria" class="form-label">Categoria</label> <select
+				class="form-select" name="categoria" id="categoria"
+				required="required">
+				<option selected value="0">---</option>
+			
+				
+				
+			</select>
+		</div>
+		<div class="mb-3"> <label class="form-label">Note</label> <input type="text"
+				class="form-control" name="titolo_post" id="titolo_postit"
+				required="required">
+		</div>
+		
+		
+		<div><label for="datemin">Entra una data :</label>
+		<input type="date" id="datemin" name="datemin" min="<%= LocalDate.now() %>">
+	 </div>
+		
+<!--  		<div class="mb-3">
+			<label class="form-label">Giorno</label> <input type="number"
+				class="form-control" name="giorno" id="giorno" required="required" >
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Mese</label> <input type="number"
+				class="form-control" name="mese" id="mese" required="required">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Anno</label> <input type="number"
+				class="form-control" name="anno" id="anno" required="required">
+		</div>
+-->		
+
+		<div class="mb-3 my-5">
+			<button type="submit" class="btn btn-primary form-control">Crea nuovo SOAP-it</button>
+		</div>
+
+
+
+
+	</form>
+</div>
+
+
+<%@ include file="footer.jsp"%>
