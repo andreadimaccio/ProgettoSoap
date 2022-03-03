@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Postit;
 
-@WebServlet("/GestioneEditSoap")
+@WebServlet(name= "GestioneEditSoap" , urlPatterns = "/GestioneEditSoap")
 public class GestioneEditSoap extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	EntityManagerFactory emf;
@@ -40,13 +40,10 @@ public class GestioneEditSoap extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String titolo = request.getParameter("titolo_postit");
-		String testo = request.getParameter("testo_postit");		
-		LocalDate dataInserimento = LocalDate.now();
-		String anno = request.getParameter("anno");
-		String mese = request.getParameter("mese");
-		String giorno = request.getParameter("giorno");
-		long data = (long)Integer.parseInt(anno + mese + giorno);
-		Date dataPromemoria = new Date(data);
+		String testo = request.getParameter("testo_postit");
+		String data = request.getParameter("data");
+		Date dataInserimento = Date.valueOf(LocalDate.now());		
+		Date dataPromemoria = Date.valueOf(data);
 	
 		if(!titolo.trim().equals("") && 
 				!testo.trim().equals("")  				
@@ -57,6 +54,7 @@ public class GestioneEditSoap extends HttpServlet {
 			soap.setDataInserimento(dataInserimento);
 			soap.setDataPromemoria(dataPromemoria);
 			updateSoap(soap);
+		}
 	}
 		private void updateSoap(Postit soap) {
 			em.getTransaction().begin();
