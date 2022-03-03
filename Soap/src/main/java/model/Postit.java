@@ -2,17 +2,8 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.sql.Date;
 
-import com.mysql.cj.xdevapi.Type;
-
-import java.util.Date;
-import java.time.LocalDate;
-
-
-/**
- * The persistent class for the postit database table.
- * 
- */
 @Entity
 @NamedQuery(name="Postit.findAll", query="SELECT p FROM Postit p")
 public class Postit implements Serializable {
@@ -22,13 +13,11 @@ public class Postit implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_postit")
 	private int idPostit;
-
-
-	@Column(name="data_inserimento")
-	private LocalDate dataInserimento;
-
-	@Temporal(TemporalType.DATE)
-	@Column(name="data_promemoria")
+	
+	@Column(name="data_inserimento_postit")
+	private Date dataInserimento;
+	
+	@Column(name="data_promemoria_postit")
 	private Date dataPromemoria;
 
 	@Lob
@@ -46,7 +35,7 @@ public class Postit implements Serializable {
 	//bi-directional many-to-one association to Utenti
 	@ManyToOne
 	@JoinColumn(name="utente_postit")
-	private Utenti utenti;
+	private Utenti utente;
 
 	public Postit() {
 	}
@@ -59,11 +48,11 @@ public class Postit implements Serializable {
 		this.idPostit = idPostit;
 	}
 
-	public LocalDate getDataInserimento() {
+	public Date getDataInserimento() {
 		return this.dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDate dataInserimento) {
+	public void setDataInserimento(Date dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
@@ -100,11 +89,11 @@ public class Postit implements Serializable {
 	}
 
 	public Utenti getUtenti() {
-		return this.utenti;
+		return this.utente;
 	}
 
-	public void setUtenti(Utenti utenti) {
-		this.utenti = utenti;
+	public void setUtenti(Utenti utente) {
+		this.utente = utente;
 	}
 
 }
