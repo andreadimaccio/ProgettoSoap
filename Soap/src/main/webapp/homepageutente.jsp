@@ -2,11 +2,14 @@
 <%@ include file="header.jsp"%>
 <%@ include file="navbar.jsp"%>
 
+
+
 <div class="container my-3">
 	<h1>Il mio profilo</h1>
 	<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 		<button class="btn btn me-md-2" type="button" style="background-color: #FDA65D;">Modifica profilo</button>
 	</div>
+
 	<thead>
 		<ul class="list-group list-group-flush">
 			<li class="list-group-item">Nome</li>
@@ -21,6 +24,7 @@
 		<thead>
 			<tr>
 				<th scope="col">#</th>
+
 				<th scope="col">Titolo</th>
 				<th scope="col">Categoria</th>
 				<th scope="col">Data di inserimento</th>
@@ -31,6 +35,7 @@
 			</tr>
 		</thead>
 		<tbody>
+
 			<tr>
 				<th scope="row">1</th>
 				<td></td>
