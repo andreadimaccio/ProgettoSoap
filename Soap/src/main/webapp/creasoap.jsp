@@ -37,7 +37,7 @@
 		
 		<div><label for="data_promemoria">Inserisci una data:</label>
 		<input type="date" id="data_promemoria" name="data_promemoria" min="<%= LocalDate.now() %>">
-	 </div>
+ </div>
 	 
 	
 	 
