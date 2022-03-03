@@ -27,12 +27,11 @@ public class DispatcherInfo extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		if(request.getSession().getAttribute("utenteLogin") != null) {
 			Utenti u = (Utenti)request.getSession().getAttribute("utenteLogin");
-			
 			if(u.getEmailUtente().equals("admin@admin.com") && u.getPasswordUtente().equals("admin")) {
 				request.getServletContext().getNamedDispatcher("GestioneAdmin").include(request, response);
 				request.getServletContext().getRequestDispatcher("/admin.jsp").forward(request, response);				
 			}
-			else {
+			else{
 				request.getServletContext().getRequestDispatcher("/homepageutente.jsp").forward(request, response);
 			}		
 		}
