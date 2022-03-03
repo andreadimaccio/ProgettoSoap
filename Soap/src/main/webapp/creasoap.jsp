@@ -23,7 +23,7 @@
 	   				<option class="rosa" value= "rosa">Relazione</option>
 	   				<option class="azzurro" value= "azzurro">Salute</option>
 	   				<option class="arancione" value="arancione">Sport</option>
-			<option class="verde" value="verde">Svago</option>
+					<option class="verde" value="verde">Svago</option>
 	   				<option class="giallo" value="giallo">Varie</option>
 	   				
    				</select>
