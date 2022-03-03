@@ -5,10 +5,7 @@ import javax.persistence.*;
 import java.util.List;
 
 
-/**
- * The persistent class for the utenti database table.
- * 
- */
+
 @Entity
 @NamedQuery(name="Utenti.findAll", query="SELECT u FROM Utenti u")
 public class Utenti implements Serializable {
