@@ -53,7 +53,7 @@
 						<h6 class="card-text">Con il nostro sito potrai organizzare i
 							tuoi impegni in modo veloce</h6>
 						<br>
-						<h6 class="card-text">Registrati per saperne di più!</h6>
+						<h6 class="card-text">Registrati per saperne di piÃ¹!</h6>
 					</div>
 				</div>
 			</div>
@@ -69,7 +69,7 @@
 						<h6 class="card-text">Non permettere mai al tuo computer di
 							capire che hai fretta</h6>
 						<br>
-						<h6 class="card-text">Accedi se sei già dei nostri!</h6>
+						<h6 class="card-text">Accedi se sei giÃ  dei nostri!</h6>
 					</div>
 				</div>
 			</div>
@@ -82,7 +82,7 @@
 					<div class="card-img-overlay">
 						<h5 class="card-title ">SOAP-IT</h5>
 						<br>
-						<h6 class="card-text">La vita è un biscotto ma se piove si
+						<h6 class="card-text">La vita Ã¨ un biscotto ma se piove si
 							scioglie..</h6>
 						<br>
 						<h6 class="card-text">Ma con i cookie del nostro sito sarai
@@ -97,6 +97,6 @@
 
 
 
-<%-- <%@ include file="infofooter.jsp"%>
-<%@ include file="footer.jsp"%> --%>
+<%@ include file="infofooter.jsp"%>
+<%@ include file="footer.jsp"%>
 
