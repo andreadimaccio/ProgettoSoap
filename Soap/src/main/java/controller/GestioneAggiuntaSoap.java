@@ -52,7 +52,7 @@ public class GestioneAggiuntaSoap extends HttpServlet {
 		String testo = request.getParameter("testo_postit");	
 		String data = request.getParameter("data");
 		int categoria = Integer.parseInt(request.getParameter("categoria_postit"));
-		Utenti utente = (Utenti)request.getServletContext().getAttribute("utenteLogin");
+		Utenti utente = (Utenti)request.getSession().getAttribute("utenteLogin");
 		Date dataInserimento = Date.valueOf(LocalDate.now());
 		Date dataPromemoria = Date.valueOf(data);	
 		if(!titolo.trim().equals("") && 
