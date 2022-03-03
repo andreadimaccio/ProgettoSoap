@@ -6,7 +6,7 @@
 
 <% 
 
-private Postit s 
+private Postit
 
 %>
 
