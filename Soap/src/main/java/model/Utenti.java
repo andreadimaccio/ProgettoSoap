@@ -39,7 +39,7 @@ public class Utenti implements Serializable {
 	private String telefonoUtente;
 
 	//bi-directional many-to-one association to Postit
-	@OneToMany(mappedBy="utenti")
+	@OneToMany(mappedBy="utente")
 	private List<Postit> postits;
 
 	public Utenti() {
