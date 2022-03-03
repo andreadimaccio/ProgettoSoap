@@ -11,6 +11,8 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+	
+<link rel="icon" href="https://raw.githubusercontent.com/andreadimaccio/ProgettoSoap/main/img/favicon.ico">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
