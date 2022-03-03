@@ -21,7 +21,7 @@ public class GestioneLogin extends HttpServlet {
 	EntityManagerFactory emf;
     EntityManager em;
     
-    private Utenti getUtenteLogin(String email, String password) {
+    public Utenti getUtenteLogin(String email, String password) {
     	Utenti u = null;    	
     	try {		    	
 		if(!em.getTransaction().isActive())
@@ -32,13 +32,11 @@ public class GestioneLogin extends HttpServlet {
 		u = (Utenti) q.getSingleResult();
 		em.getTransaction().commit();		
     	}
-    	catch(Exception e){
-    		
+    	catch(Exception e){  		
     	}
     	return u;
 	}
-
-	
+    
     public GestioneLogin() {   	
         super();  
     }
