@@ -1,7 +1,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@ include file="header.jsp"%>
 <%@ include file="navbar.jsp"%>
-
+<%@ page import = "model.Utenti" %>
+<% Utenti u = (Utenti)request.getSession().getAttribute("utenteLogin"); %>
 <div class="container my-3">
 	<div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
 	<thead>
@@ -10,10 +11,10 @@
 				<li class="list-group-item" aria-current="true"
 					style="background-color: #FDA65D;">Il mio profilo</li>
 			</h2>
-			<li class="list-group-item">Nome</li>
-			<li class="list-group-item">Cognome</li>
-			<li class="list-group-item">Email</li>
-			<li class="list-group-item">Telefono</li>
+			<li class="list-group-item"><%= u.getNomeUtente() %></li>
+			<li class="list-group-item"><%= u.getCognomeUtente() %></li>
+			<li class="list-group-item"><%= u.getEmailUtente() %></li>
+			<li class="list-group-item"><%= u.getTelefonoUtente() %></li>
 		</ul>
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end ">
 			<button class="btn btn me-md-2 my-2" type="button"
