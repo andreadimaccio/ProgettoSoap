@@ -31,7 +31,7 @@
 			</span>
 				<div class="navbar" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link" href="bacheca.jsp">Bacheca</a>
+						<li class="nav-item"><a class="nav-link" href="dispatcherbacheca">Bacheca</a>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="dispatcherutente?action=logout">Logout</a></li>
 					</ul>
