@@ -1,6 +1,6 @@
-	<button type="button" onclick="backToTop" class="btn btn-danger btn-floating btn-lg"
-		id="btn-back-to-top">
-		<i class="bi bi-arrow-up-square-fill"></i>
+	<button type="button" onclick="backToTop" class="btn btn-floating btn-lg"
+		id="btn-back-to-top" style="background-color: #FDA65D;">
+		<i class="bi bi-arrow-up"></i>
 	</button>
 	
 	<script src="toTop.js"></script>
