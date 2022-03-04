@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Postit;
+import model.Utenti;
 
 @WebServlet(name= "GestioneEditSoap" , urlPatterns = "/GestioneEditSoap")
 public class GestioneEditSoap extends HttpServlet {
@@ -48,12 +50,12 @@ public class GestioneEditSoap extends HttpServlet {
 		if(!titolo.trim().equals("") && 
 				!testo.trim().equals("")  				
 				) {
-			Postit soap = new Postit();
-			soap.setTitoloPostit(titolo);
-			soap.setTestoPostit(testo);
-			soap.setDataInserimento(dataInserimento);
-			soap.setDataPromemoria(dataPromemoria);
-			updateSoap(soap);
+//			Postit soap = getPostit();
+//			soap.setTitoloPostit(titolo);
+//			soap.setTestoPostit(testo);
+//			soap.setDataInserimento(dataInserimento);
+//			soap.setDataPromemoria(dataPromemoria);
+//			updateSoap(soap);
 		}
 	}
 		private void updateSoap(Postit soap) {
@@ -61,4 +63,20 @@ public class GestioneEditSoap extends HttpServlet {
 			em.merge(soap);
 			em.getTransaction().commit();
 		}
+		
+		 private Postit getPostit(String email, String password) {
+		    	Postit u = null;    	
+		    	try {		    	
+				if(!em.getTransaction().isActive())
+				    em.getTransaction().begin();		
+				Query q = em.createQuery("SELECT u FROM Utenti u WHERE u.emailUtente = :param AND u.passwordUtente = :param1");
+				q.setParameter("param", email);
+				q.setParameter("param1", password);
+				u = (Postit) q.getSingleResult();
+				em.getTransaction().commit();		
+		    	}
+		    	catch(Exception e){  		
+		    	}
+		    	return u;
+			}
 }
