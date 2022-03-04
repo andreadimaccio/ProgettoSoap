@@ -17,8 +17,8 @@
 			<li class="list-group-item"><%= u.getTelefonoUtente() %></li>
 		</ul>
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end ">
-			<button class="btn btn me-md-2 my-2" type="button"
-				style="background-color: #FDA65D;">Modifica profilo</button>
+			<a href="dispatcherutente?action=edit"><button class="btn btn me-md-2 my-2" type="button"
+				style="background-color: #FDA65D;">Modifica profilo</button></a>
 		</div>
 	</thead>
 	<br> <br> <br> <br>
