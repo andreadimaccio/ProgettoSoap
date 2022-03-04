@@ -1,3 +1,4 @@
+
 package controller;
 
 import java.io.IOException;
@@ -47,11 +48,11 @@ public class GestioneAdmin extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		if(request.getParameter("action") != null && request.getParameter("action").equals("aggiungi")) {
+		if(request.getParameter("aggiungi") != null) {
 			utentiDaInserire.get(Integer.parseInt("aggiungi")).setAccettato(true);
 			utentiDaInserire.remove(Integer.parseInt("aggiungi"));
 		}
-		else if(request.getParameter("action") != null && request.getParameter("action").equals("rifiuta")) {
+		else if(request.getParameter("rifiuta") != null) {
 			utentiDaInserire.remove(Integer.parseInt("rifiuta"));
 		}
 		utentiDaInserire = getAllUtentiInattivi();
