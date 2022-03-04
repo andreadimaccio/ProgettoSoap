@@ -20,6 +20,9 @@ public class DispatcherSoap extends HttpServlet {
 		if(request.getParameter("action") != null && request.getParameter("action").equals("aggiungisoap")) {
 			request.getServletContext().getRequestDispatcher("/creasoap.jsp").forward(request, response);
 		}
+		else if(request.getParameter("edit") != null ) {
+			request.getServletContext().getRequestDispatcher("/modificasoap.jsp").forward(request, response);
+		}
 		else {			
 			response.sendRedirect("dispatchergenerale");
 		}				
