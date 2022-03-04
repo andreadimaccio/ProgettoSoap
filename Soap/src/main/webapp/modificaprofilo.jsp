@@ -1,50 +1,42 @@
-
-
 <%@ page import="java.util.ArrayList" %>
 <%@ include file="header.jsp"%>
+<%@ page import = "model.Utenti" %>
+<% Utenti u = (Utenti)request.getSession().getAttribute("utenteLogin"); %>
 
-<%-- <%
-	int id = Integer.parseInt(request.getParameter("edit"));
-	ArrayList<User> lista = GestioneLogin.userlist == null ? GestioneLogin.DB.leggiUsers() : GestioneLogin.userlist;
-	User editUser = null;
-	for(User user : lista) {
-		if(user.getId() == id) {
-			editUser = user;
-			break;
-		}
-	}
-%> --%>
+<h1 class="text-center" style="margin-top: 100px;">Registrati</h1>
+<div class="container" style="width: 500px; margin-top: 20px;">
+	<form class="px-4 py-3"
+		action="dispatcherutente?action=edit" method="post">
+		<div class="mb-3">
+			<label class="form-label">Nome</label> <input type="text"
+				class="form-control" name="nome_utente" id="email" placeholder="">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Cognome</label> <input type="text"
+				class="form-control" name="cognome_utente" id="email" placeholder="">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Email</label> <input type="email"
+				class="form-control" name="email_utente" id="email" placeholder="">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Password</label> <input type="password"
+				class="form-control" name="password_utente" id="password"
+				placeholder="">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Telefono</label> <input type="text"
+				class="form-control" name="telefono_utente" id="telefono" placeholder="">
+		</div>
+		<div class="mb-3 ">
+			<button type="submit" class="btn btn-warning" style="background-color: #FDA65D;" >
+			Conferma</button>
 
-<% if(editUser != null) { %>
-<div class="container my-3">
-	<h1>Modifica profilo</h1>
-	<form action="gestionerubrica?edit=<%=editUser.getId() %>" method="POST">
-		<div class="mb-3">
-			<label for="name" class="form-label">Nome</label> <input type="text"
-				name="nome_utente" class="form-control" id="name" value="<%= editUser.getName() %>">
-		</div>
-		<div class="mb-3">
-			<label for="cognome" class="form-label">Cognome</label> <input
-				type="text" name="cognome_utente" class="form-control" id="lastname" value="<%= editUser.getLastname() %>">
-		</div>
-		<div class="mb-3">
-			<label for="email" class="form-label">Email</label> <input
-				type="email" name="email_utente" class="form-control" id="email" value="<%= editUser.getEmail() %>">
-		</div>
-		<div class="mb-3">
-			<label for="telefono" class="form-label">Telefono</label> <input
-				type="tel" name="telefono_utente" class="form-control" id="telefono" value="<%= editUser.getEmail() %>">
-		</div>
-		<div class="mb-3">
-			<label for="password" class="form-label">Password</label> <input
-				type="password" name="password_utente" class="form-control" id="password" value="<%= editUser.getPhone() %>">
-		</div>
-		<div class="mb-3">
-			<button type="submit" class="btn btn-primary form-control">Modifica</button>
 		</div>
 	</form>
+
 </div>
-<% } %>
+
 
 
 <%@ include file="footer.jsp"%>
