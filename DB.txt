@@ -34,3 +34,13 @@ CREATE TABLE IF NOT EXISTS `postit` (
   CONSTRAINT `postit_ibfk_1` FOREIGN KEY (`utente_postit`) REFERENCES `utenti` (`id_utente`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `postit_ibfk_2` FOREIGN KEY (`categoria_postit`) REFERENCES `categorie` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
+/////   AGGIUNTA CATEGORIE    ////////////////
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Lavoro', 'rosso');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Studio', 'rosa');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Amici', 'azzurro');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Shopping', 'arancione');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Viaggi', 'verde');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Idee', 'giallo');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Nessuna', 'bianco');
