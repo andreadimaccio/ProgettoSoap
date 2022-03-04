@@ -4,6 +4,7 @@ import java.io.IOException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,19 +49,37 @@ public class GestioneEditUtente extends HttpServlet {
 				!password.trim().equals("") &&
 				!telefono.trim().equals("")
 				) {
-			Utenti user = new Utenti();
+			Utenti user = (Utenti)request.getSession().getAttribute("utenteLogin");
+			user = getUtenteLogin(user.getEmailUtente(),user.getPasswordUtente());
 			user.setNomeUtente(nome);
 			user.setCognomeUtente(cognome);
 			user.setEmailUtente(email);
 			user.setPasswordUtente(password);
 			user.setTelefonoUtente(telefono);
 			updateUser(user);
+			request.getSession().setAttribute("utenteLogin", user);
 		}
 	}
 	private void updateUser(Utenti user) {
 		em.getTransaction().begin();
-		em.merge(user);
+		em.persist(user);
 		em.getTransaction().commit();
+	}
+	public Utenti getUtenteLogin(String email, String password) {
+		Utenti u = null;    	
+		try {		    	
+			if(!em.getTransaction().isActive())
+				em.getTransaction().begin();		
+			Query q = em.createQuery("SELECT u FROM Utenti u WHERE u.emailUtente = :param AND u.passwordUtente = :param1");
+			q.setParameter("param", email);
+			q.setParameter("param1", password);
+			u = (Utenti) q.getSingleResult();
+			em.getTransaction().commit();		
+		}
+		catch(Exception e){  	
+			e.printStackTrace();
+		}
+		return u;
 	}
 }
 
