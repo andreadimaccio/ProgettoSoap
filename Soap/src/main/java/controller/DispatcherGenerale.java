@@ -29,7 +29,7 @@ public class DispatcherGenerale extends HttpServlet {
 			request.getServletContext().getRequestDispatcher("/registrazione.jsp").forward(request, response);
 		} 
 		else if(action != null && action.equals("login")){
-			request.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+			request.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);			
 		}
 		else if(action != null && action.equals("homepageutente")) {
 			request.getServletContext().getRequestDispatcher("/homepageutente.jsp").forward(request, response);
@@ -41,12 +41,10 @@ public class DispatcherGenerale extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("action") != null && request.getParameter("action").equals("registrazione")) {
-			request.getServletContext().getNamedDispatcher("GestioneRegistrazione").include(request, response);				
-			//rimanda su infopage
+			request.getServletContext().getNamedDispatcher("GestioneRegistrazione").include(request, response);					
 		}
 		else if(request.getParameter("action") != null && request.getParameter("action").equals("login")) {
 			request.getServletContext().getNamedDispatcher("GestioneLogin").include(request, response);	
-			// rimanda su homepageutente NON HOME
 		}
 		response.sendRedirect("DispatcherInfo");
 	}
