@@ -1,7 +1,6 @@
 <%@ page import="java.util.Date"%>
 <%@ include file="header.jsp"%>
 <%@ include file="navbar.jsp"%>
-
 <div class=" text-center gap-2 col-6 mx-auto my-3">
 	<a href="dispatchersoap?action=aggiungisoap"><button class="btn btn" type="button" style="background-color: #FDA65D;">Nuovo Soap-it</button></a>
 	<button class="btn btn" type="button" style="background-color: #FDA65D;"  href="dispatchercategoria?action=aggiungicategoria">Nuova Categoria</button>
