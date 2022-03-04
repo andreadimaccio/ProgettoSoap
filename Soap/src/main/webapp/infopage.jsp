@@ -16,7 +16,7 @@
 				<div class="carousel-item" data-bs-interval="3000">
 					<img
 						src="https://img.freepik.com/premium-photo/sticky-note-post-it-board-office_53876-55386.jpg"
-						class="d-block w-5" alt="...">
+						class="d-block w-5 " alt="...">
 					<h2 class="text-dark">Rimani sempre aggiornato</h2>
 				</div>
 				<div class="carousel-item" data-bs-interval="3000">
@@ -45,10 +45,10 @@
 		<div class="row">
 			<div class="col-4">
 				<div class="card bg-white text-dark img-thumbnail"
-					style="height: 300px; width: 300px;">
+					style="height: 300px; width: 300px; border: 0">
 					<img
 						src="https://github.com/andreadimaccio/ProgettoSoap/blob/main/postit2.png?raw=true"
-						class="card-img h-100" alt="...">
+						class="card-img h-100 " alt="...">
 					<div class="card-img-overlay">
 						<h5 class="card-title ">
 							<br>SOAP-IT
@@ -65,7 +65,7 @@
 			</div>
 			<div class="col-4">
 				<div class="card bg-white text-dark img-thumbnail"
-					style="height: 300px; width: 300px;">
+					style="height: 300px; width: 300px; border: 0">
 					<img
 						src="https://github.com/andreadimaccio/ProgettoSoap/blob/main/postit3.png?raw=true"
 						class="card-img h-100" alt="...">
@@ -83,7 +83,7 @@
 			</div>
 			<div class="col-4">
 				<div class="card bg-white text-dark img-thumbnail"
-					style="height: 300px; width: 300px;">
+					style="height: 300px; width: 300px; border: 0">
 					<img
 						src="https://github.com/andreadimaccio/ProgettoSoap/blob/main/postit4.png?raw=true"
 						class="card-img h-100" alt="...">
