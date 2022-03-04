@@ -13,9 +13,8 @@ public class DispatcherSoap extends HttpServlet {
    
     public DispatcherSoap() {
         super();
-       
+      
     }
-//    request.getServletContext().getRequestDispatcher("/bacheca.jsp").forward(request, response);
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("action") != null && request.getParameter("action").equals("aggiungisoap")) {
