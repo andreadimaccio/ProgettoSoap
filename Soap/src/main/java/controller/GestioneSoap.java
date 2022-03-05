@@ -53,10 +53,10 @@ public class GestioneSoap extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
+			doGet(request, response);
 	}
 	
-	public Postit getPostitUtente(String email, String password) {
+	/*public Postit getPostitUtente(String email, String password) {
 		Postit p = null;    	
 		try {		    	
 			if(!em.getTransaction().isActive())
@@ -70,7 +70,7 @@ public class GestioneSoap extends HttpServlet {
 		catch(Exception e){  		
 		}
 		return p;
-	}
+	}*/
 	
 	
 	public ArrayList<Postit> getAllPostitUtente(String email, String password) {

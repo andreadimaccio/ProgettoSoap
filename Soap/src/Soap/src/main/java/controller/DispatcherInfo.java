@@ -32,7 +32,6 @@ public class DispatcherInfo extends HttpServlet {
 				request.getServletContext().getRequestDispatcher("/admin.jsp").forward(request, response);				
 			}
 			else{
-				request.getServletContext().getNamedDispatcher("GestioneHomeUtente").include(request, response);
 				request.getServletContext().getRequestDispatcher("/homepageutente.jsp").forward(request, response);
 			}		
 		}

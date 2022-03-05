@@ -32,7 +32,6 @@ public class DispatcherGenerale extends HttpServlet {
 			request.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);			
 		}
 		else if(action != null && action.equals("homepageutente")) {
-			request.getServletContext().getNamedDispatcher("GestioneHomeUtente").include(request, response);	
 			request.getServletContext().getRequestDispatcher("/homepageutente.jsp").forward(request, response);
 		}
 		else {

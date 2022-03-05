@@ -1,0 +1,26 @@
+@charset "ISO-8859-1";
+
+.soapit {
+	display: inline-block;
+	width: 18rem;
+	height: 20rem;
+	margin: 0 auto;
+}
+
+.titolo_cliccabile {
+	padding: 5px 3px;
+}
+
+.titolo_cliccabile:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	
+}
+
+.rosso {background-color: #cc0000;}
+.rosa {background-color: #ffcccc;}
+.azzurro {background-color: #87bdd8;}
+.arancione {background-color:#ff7b25;}
+.verde {background-color: #405d27;}
+.giallo {background-color: #feb236;}
+.bianco {background-color: #fefbd8;}
+

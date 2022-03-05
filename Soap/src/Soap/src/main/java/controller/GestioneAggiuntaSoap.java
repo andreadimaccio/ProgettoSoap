@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -67,17 +66,6 @@ public class GestioneAggiuntaSoap extends HttpServlet {
 			soap.setDataPromemoria(dataPromemoria);
 			soap.setUtenti(utente);
 			addSoapit(soap);
-			
-
-		
-			
-			ArrayList<Postit> allPostitUtente = getAllPostitUtente(utente.getEmailUtente(), utente.getPasswordUtente());
-			System.out.println(allPostitUtente.size());
-			
-			request.setAttribute("allPostit", allPostitUtente);
-			
-			
-			
 		}
 	}	
 	private void addSoapit(Postit soap) {
@@ -86,27 +74,17 @@ public class GestioneAggiuntaSoap extends HttpServlet {
 		em.getTransaction().commit();		
 	}
 	private Categorie getCategoria(int id) {
-    	//Categorie c = null;    	
-    	//try {		    	
-		//if(!em.getTransaction().isActive())
-		   // em.getTransaction().begin();		
+    	Categorie c = null;    	
+    	try {		    	
+		if(!em.getTransaction().isActive())
+		    em.getTransaction().begin();		
 		Query q = em.createQuery("SELECT c FROM Categorie c WHERE c.idCategoria = :param");
 		q.setParameter("param", id);		
-		Categorie c = (Categorie) q.getSingleResult();
-		//em.getTransaction().commit();		
-    	//}
-    	//catch(Exception e){  		
-    	//}
+		c = (Categorie) q.getSingleResult();
+		em.getTransaction().commit();		
+    	}
+    	catch(Exception e){  		
+    	}
     	return c;
-	}
-	
-	public ArrayList<Postit> getAllPostitUtente(String email, String password) {
-		Query q = em.createQuery("SELECT u From Utenti u WHERE u.emailUtente = :param AND u.passwordUtente = :param1 ");
-		q.setParameter("param", email);
-		q.setParameter("param1", password);
-		Utenti u = (Utenti)q.getSingleResult();
-		ArrayList<Postit> lista = new ArrayList<>() ;
-		lista.addAll(u.getPostits());
-		return lista;
 	}
 }
