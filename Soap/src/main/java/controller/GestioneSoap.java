@@ -56,21 +56,7 @@ public class GestioneSoap extends HttpServlet {
 			doGet(request, response);
 	}
 	
-	/*public Postit getPostitUtente(String email, String password) {
-		Postit p = null;    	
-		try {		    	
-			if(!em.getTransaction().isActive())
-				em.getTransaction().begin();		
-			Query q = em.createQuery("SELECT p FROM Postit p INNER JOIN Utenti u ON p.utente.getIdUtente() = u.idUtente  WHERE u.emailUtente = :param AND u.passwordUtente = :param1 ");
-			q.setParameter("param", email);
-			q.setParameter("param1", password);
-			p = (Postit) q.getSingleResult();
-			em.getTransaction().commit();		
-		}
-		catch(Exception e){  		
-		}
-		return p;
-	}*/
+
 	
 	
 	public ArrayList<Postit> getAllPostitUtente(String email, String password) {

@@ -88,8 +88,8 @@
 					      </div>
 					      <div class="modal-footer">
 					        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-					        <a class="btn btn-warning d-block" href="dispatchersoap?edit<%= elemento.getIdPostit() %>" role="button">Modifica Soap-it</a>
-					        <a class="btn btn-danger d-block" href="dispatcher?remove<%= elemento.getIdPostit()%> role="button">Elimina Soap-it</a>
+					        <a class="btn btn-warning d-block" href="dispatchereditremove?edit=<%= elemento.getIdPostit() %>" role="button">Modifica Soap-it</a>
+					        <a class="btn btn-danger d-block" href="dispatchereditremove?remove=<%= elemento.getIdPostit()%>" role="button">Elimina Soap-it</a>
 					      </div>
 					    </div>
 					  </div>

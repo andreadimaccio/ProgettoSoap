@@ -1,21 +1,31 @@
+<%@page import="javax.persistence.Persistence"%>
+<%@page import="javax.persistence.EntityManager"%>
+<%@page import="javax.persistence.EntityManagerFactory"%>
+<%@page import="javax.persistence.Query"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Postit"%>
 <%@ include file="header.jsp"%>
 <%@ include file="navbar.jsp"%>
 
-<% 
+<%
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("Soap");
 
-private Postit
-
+	EntityManager em = emf.createEntityManager();
+	String PostitDaModificare = request.getParameter("edit");
+	Query q = em.createQuery("SELECT p FROM Postit p WHERE p.idPostit = :param");
+	q.setParameter("param", Integer.parseInt(request.getParameter("edit")));
+	Postit soap = (Postit) q.getSingleResult();
 %>
 
 
-<form action="GestioneEditSoap?=<%= idPostit %>" method="POST">
+<form
+	action="dispatchereditremove?editpostit=<%=PostitDaModificare%>"
+	method="POST">
 	<div class="mb-3">
-		<label for="nome" class="form-label">Inserire nuovo nome per
-			il SOAP-it</label> <input type="text" name="nome" class="form-control"
-			id="nome" value="<%= s.getTitoloPostit() %>">
+		<label for="nome" class="form-label">Inserire nuovo titolo per
+			il SOAP-it</label> <input type="text" name="titolo_postit"
+			class="form-control" id="titolo_postit" value = "<%= soap.getTitoloPostit() %>">
 	</div>
 	<div class="mb-3">
 		<label for="categoria" class="form-label">Categoria</label> <select
@@ -35,14 +45,13 @@ private Postit
 	</div>
 	<div class="mb-3">
 		<label for="note" class="form-label">Note</label> <input type="text"
-			name="testo_postit" class="form-control" id="testo_postit"
-			value="<%= s.getTestoPostit() %>">
+			name="testo_postit" class="form-control" id="testo_postit" value = "<%= soap.getTestoPostit() %>">
 
 	</div>
 	<div class="mb-3">
 		<label for="data_promemoria">Inserisci una data :</label> <input
 			type="date" id="data_promemoria" name="data_promemoria"
-			min="<%= LocalDate.now() %>">
+			min="<%=LocalDate.now()%>" value = " <%= soap.getDataPromemoria()%>">
 	</div>
 
 

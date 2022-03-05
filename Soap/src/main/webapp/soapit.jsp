@@ -1,4 +1,4 @@
-//SOAPIT con contenuto esempio
+SOAPIT con contenuto esempio
 
 <div class="card text-dark mb-3 soapit overflow-auto mx-4 my-2 g-col-3 ">
 	<div class="card-header sticky-top bg-warning">
