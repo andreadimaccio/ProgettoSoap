@@ -43,4 +43,4 @@ INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VA
 INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Sport', 'danger');
 INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Svago', 'info');
 INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Varie', 'warning');
-INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Nessuna', 'Light');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Nessuna', 'light');
