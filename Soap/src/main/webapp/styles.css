@@ -16,11 +16,24 @@
 	
 }
 
-.rosso {background-color: #cc0000;}
+.rosso {background-color: #d72828;}
+.rosso_chiaro {background-color: #e77e7e;}
+
 .rosa {background-color: #ffcccc;}
+.rosa_chiaro { background-color: #ffe6e6;}
+
 .azzurro {background-color: #87bdd8;}
+.azzurro_chiaro {background-color: #c4e0ed;}
+
 .arancione {background-color:#ff7b25;}
-.verde {background-color: #405d27;}
-.giallo {background-color: #feb236;}
-.bianco {background-color: #fefbd8;}
+.arancione_chiaro {background-color:#ffb380;}
+
+.verde {background-color: #4a6c2d;}
+.verde_chiaro {background-color: #89bb5d;}
+
+.giallo {background-color: #fe9d01;}
+.giallo_chiaro {background-color: #fece80;}
+
+.bianco {background-color: #fefacd;}
+.bianco_chiaro {background-color: #fefce6;}
 
