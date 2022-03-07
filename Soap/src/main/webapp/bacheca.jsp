@@ -3,7 +3,7 @@
 <%@page import="model.Postit"%>
 <%@ page import="java.util.Date"%>
 
-<% ArrayList<Postit> lista = (ArrayList<Postit>) request.getAttribute("allPostit"); %>
+<% ArrayList<Postit> lista = (ArrayList<Postit>) request.getSession().getAttribute("allPostit"); %>
 
 <%@ include file="header.jsp"%>
 <%@ include file="navbar.jsp"%>
