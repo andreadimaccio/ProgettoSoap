@@ -4,7 +4,7 @@
 <%@ page import = "model.Utenti" %>
 <%@ page import = "model.Postit" %>
 <% Utenti u = (Utenti)request.getSession().getAttribute("utenteLogin"); %>
-<% ArrayList<Postit> lista = (ArrayList<Postit>) request.getAttribute("postitOggi"); %>
+<% ArrayList<Postit> lista = (ArrayList<Postit>) request.getSession().getAttribute("postitOggi"); %>
 
 <div class="container my-3">
 	<div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
