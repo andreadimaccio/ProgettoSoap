@@ -23,8 +23,9 @@
 				placeholder="">
 		</div>
 		<div class="mb-3">
-			<label class="form-label">Telefono</label> <input type="text"
-				class="form-control" name="telefono_utente" id="telefono" placeholder="">
+			<label for="telefono">Enter a telephone number (in the form xxxxxxxxxx): </label>
+		    <input  class="form-control" id="telefono" name="telefono_utente" type="tel" required pattern="[0-9]{10}" minlength="10" maxlength="10">
+		    <span class="validity"></span>
 		</div>
 			<button type="submit" class="btn btn-warning" style="background-color: #FDA65D;" >
 			Registrati</button>
