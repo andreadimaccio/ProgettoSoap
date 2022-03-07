@@ -44,5 +44,4 @@ INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VA
 INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Svago', 'verde');
 INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Varie', 'giallo');
 INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Nessuna', 'bianco');
-
-INSERT INTO `progettosoap`.`utenti` (`nome_utente`, `cognome_utente`, `email_utente`, `telefono_utente`, `password_utente`, `cognome_utente`, `accettato`) VALUES ('admin', 'admin', 'admin@admin.com', '1111111111', 'admin', '1');
+INSERT INTO `progettosoap`.`utenti` (`nome_utente`, `cognome_utente`, `email_utente`, `telefono_utente`, `password_utente`, `accettato`) VALUES ('admin', 'admin', 'admin@admin.com', '1111111111', 'admin', '1');
