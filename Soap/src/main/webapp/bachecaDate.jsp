@@ -2,7 +2,7 @@
 <%@page import="model.Postit"%>
 <%@ page import="java.util.Date"%>
 
-<% ArrayList<Postit> lista = (ArrayList<Postit>) request.getAttribute("postitDate"); %>
+<% ArrayList<Postit> lista = (ArrayList<Postit>) request.getSession().getAttribute("postitDate"); %>
 
 <%@ include file="header.jsp"%>
 <%@ include file="navbar.jsp"%>
