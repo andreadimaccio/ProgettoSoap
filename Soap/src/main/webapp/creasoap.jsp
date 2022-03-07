@@ -25,11 +25,10 @@
 				<option class="arancione" value="6">Sport</option>						
 			</select>
 		</div>
-		<div class="mb-3"> <label class="form-label">Note</label> <input type="text"
-				class="form-control" name="testo_postit" id="titolo_postit"
-				required="required">
+		<div class="mb-3"> <label class="form-label">Testo</label> 
+			<textarea class="form-control" name="testo_postit" id="testo_postit" rows="3"></textarea>
 		</div>		
-		<div><label for="datemin">Entra una data :</label>
+		<div><label for="datemin">Data promemoria (non obbligatorio)</label>
 		<input type="date" id="datemin" name="data" min="<%= LocalDate.now() %>">
 	 </div>		
 		<div class="mb-3 my-5">
