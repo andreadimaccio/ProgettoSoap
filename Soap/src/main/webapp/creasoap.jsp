@@ -20,9 +20,9 @@
 				<option class="rosso" value="1">Lavoro</option>
 				<option class="rosa" value="2">Relazione</option>
 				<option class="azzurro" value="3">Salute</option>
-				<option class="verde" value="4">Svago</option>
-				<option class="giallo" value="5">Varie</option>
-				<option class="arancione" value="6">Sport</option>						
+				<option class="verde" value="5">Svago</option>
+				<option class="giallo" value="6">Varie</option>
+				<option class="arancione" value="4">Sport</option>							
 			</select>
 		</div>
 		<div class="mb-3"> <label class="form-label">Testo</label> 
