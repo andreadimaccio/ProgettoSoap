@@ -37,10 +37,10 @@ CREATE TABLE IF NOT EXISTS `postit` (
 
 
 /////   AGGIUNTA CATEGORIE    ////////////////
-INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Lavoro', 'primary');
-INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Relazione', 'secondary');
-INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Salute', 'success');
-INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Sport', 'danger');
-INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Svago', 'info');
-INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Varie', 'warning');
-INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Nessuna', 'light');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Lavoro', 'rosso');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Relazione', 'rosa');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Salute', 'azzurro');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Sport', 'arancione');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Svago', 'verde');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Varie', 'giallo');
+INSERT INTO `progettosoap`.`categorie` (`nome_categoria`, `colore_categoria`) VALUES ('Nessuna', 'bianco');
