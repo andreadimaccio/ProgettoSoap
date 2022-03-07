@@ -1,3 +1,4 @@
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Postit"%>
 <%@ page import="java.util.Date"%>
@@ -43,7 +44,7 @@
 		<div class="grid">
 			<div class="row row-cols-4">
 				<% for (Postit elemento : lista) { %>
-					<div class="card text-dark mb-3 soapit overflow-auto col">
+					<div class="card text-dark mb-3 soapit overflow-auto col border-0">
 						<div class="card-header sticky-top <%= elemento.getCategorie().getColoreCategoria() %>">
 							<div class="titolo_cliccabile">
 								<div class="btn-group">
