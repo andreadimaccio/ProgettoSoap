@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -46,6 +47,7 @@ public class GestioneSoap extends HttpServlet {
 		Utenti u = (Utenti) request.getSession().getAttribute("utenteLogin");
 
 		if (request.getParameter("remove") != null) {
+			init();
 			Query q = em.createQuery("SELECT p FROM Postit p WHERE p.idPostit = :param");
 			q.setParameter("param", Integer.parseInt(request.getParameter("remove")));
 			Postit soap = (Postit) q.getSingleResult();
@@ -54,11 +56,9 @@ public class GestioneSoap extends HttpServlet {
 			em.getTransaction().commit();
 
 		}
-		request.getSession().invalidate();
-		//System.out.println(allPostitUtente.size() + " prima");
-		allPostitUtente = getAllPostitUtente(u.getEmailUtente(), u.getPasswordUtente());
-		System.out.println(allPostitUtente.size() + " dopo");
-		request.getSession().setAttribute("utenteLogin", u);
+		request.getSession().removeAttribute("allPostit");
+		ArrayList<Postit> allPostitUtente = new ArrayList<Postit>();
+		allPostitUtente.addAll(getAllPostitUtente(u.getEmailUtente(), u.getPasswordUtente()));
 		request.getSession().setAttribute("allPostit", allPostitUtente);
 
 	}
@@ -76,6 +76,7 @@ public class GestioneSoap extends HttpServlet {
 			Date dataPromemoria = Date.valueOf(data);
 
 			if (!titolo.trim().equals("") && !testo.trim().equals("")) {
+				init();
 				Query q = em.createQuery("SELECT p FROM Postit p WHERE p.idPostit = :param");
 				q.setParameter("param", Integer.parseInt(request.getParameter("editpostit")));
 				Postit soap = (Postit) q.getSingleResult();
@@ -89,26 +90,22 @@ public class GestioneSoap extends HttpServlet {
 
 			}
 		}
-		allPostitUtente = getAllPostitUtente(u.getEmailUtente(), u.getPasswordUtente());
+		allPostitUtente.addAll(getAllPostitUtente(u.getEmailUtente(), u.getPasswordUtente()));
 
 		request.getSession().setAttribute("allPostit", allPostitUtente);
 	}
 
-	private ArrayList<Postit> getAllPostitUtente(String email, String password) {
+	private List<Postit> getAllPostitUtente(String email, String password) {
 		try {
 			init();
 		} catch (ServletException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		Query q = em.createQuery("SELECT u From Utenti u WHERE u.emailUtente = :param AND u.passwordUtente = :param1 ");
+		Query q = em.createQuery("SELECT p From Utenti u JOIN u.postits p WHERE u.emailUtente = :param AND u.passwordUtente = :param1 ");
 		q.setParameter("param", email);
 		q.setParameter("param1", password);
-		Utenti u = (Utenti) q.getSingleResult();
-		ArrayList<Postit> lista = new ArrayList<>();
-		lista.addAll(u.getPostits());
-		return lista;
+		return (List<Postit>) q.getResultList();
 	}
 
 	private void updateSoap(Postit soap) {
