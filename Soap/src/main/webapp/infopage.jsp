@@ -6,20 +6,20 @@
 		<div id="carouselExampleInterval" class="carousel slide my-3"
 			data-bs-ride="carousel">
 			<div class="carousel-inner">
-				<div class="carousel-item active" data-bs-interval="3000">
+				<div class="carousel-item active" data-bs-interval="2500">
 					<img
 						src="https://github.com/andreadimaccio/ProgettoSoap/blob/main/img/saponettagialla.png?raw=true"
 						class="d-block w-5" alt="...">
 					<h2 class="text-dark">Sistema Organizzativo Altamente
 						Personalizzato</h2>
 				</div>
-				<div class="carousel-item" data-bs-interval="3000">
+				<div class="carousel-item" data-bs-interval="2500">
 					<img
 						src="https://img.freepik.com/premium-photo/sticky-note-post-it-board-office_53876-55386.jpg"
 						class="d-block w-5 " alt="...">
 					<h2 class="text-dark">Rimani sempre aggiornato</h2>
 				</div>
-				<div class="carousel-item" data-bs-interval="3000">
+				<div class="carousel-item" data-bs-interval="2500">
 					<img
 						src="https://img.freepik.com/premium-photo/image-colorful-sticky-notes-cork-bulletin-board_109549-961.jpg?size=626&ext=jpg"
 						class="d-block w-5" alt="...">
