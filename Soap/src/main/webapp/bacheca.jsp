@@ -102,5 +102,6 @@
 		
 	
 </div>
-	
+
+<%@ include file="footerinterno.jsp"%>
 <%@ include file="footer.jsp"%>
