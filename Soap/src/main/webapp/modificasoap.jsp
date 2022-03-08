@@ -44,7 +44,7 @@
 		</div>
 		<div class="mb-3">
 			<label for="note" class="form-label">Note</label> 
-			<textarea class="form-control" name="testo_postit" id="testo_postit" rows="3"></textarea>
+			<textarea class="form-control" name="testo_postit" id="testo_postit" rows="3"><%= soap.getTestoPostit() %></textarea>
 
 		</div>
 		<div class="mb-3">
