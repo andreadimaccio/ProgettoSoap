@@ -51,7 +51,15 @@ public class GestioneAggiuntaSoap extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String titolo = request.getParameter("titolo_postit");
 		String testo = request.getParameter("testo_postit");	
-		String data = request.getParameter("data");
+		
+		String data;
+		if(request.getParameter("data").equals("") || request.getParameter("data") == null) {
+			data = "2000-01-01";
+		}
+		else {
+			data = request.getParameter("data");
+		}
+		
 		int categoria = Integer.parseInt(request.getParameter("categoria_postit"));
 		Utenti utente = (Utenti)request.getSession().getAttribute("utenteLogin");
 		Date dataInserimento = Date.valueOf(LocalDate.now());
