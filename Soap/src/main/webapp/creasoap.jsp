@@ -1,8 +1,10 @@
 <%@page import="java.time.LocalDate"%>
 <%@page import="model.Categorie"%>
 <%@page import="java.util.ArrayList"%>
+
 <%@ include file="header.jsp"%>
 <%@ include file="navbar.jsp"%>
+
 <h1 class="text-center" style="margin-top: 100px;">Nuovo SOAP-it</h1>
 <div class="container" style="width: 300px; margin-top: 20px;">
 	<form action="dispatchersoap?action=aggiungisoap" method="Post">
@@ -22,13 +24,13 @@
 				<option class="azzurro" value="3">Salute</option>
 				<option class="verde" value="5">Svago</option>
 				<option class="giallo" value="6">Varie</option>
-				<option class="arancione" value="4">Sport</option>							
+				<option class="arancione" value="4">Sport</option>						
 			</select>
 		</div>
-		<div class="mb-3"> <label class="form-label">Testo</label> 
-			<textarea class="form-control" name="testo_postit" id="testo_postit" rows="3"></textarea>
+		<div class="mb-3"> <label class="form-label">Testo Soap-it</label> 
+			<textarea class="form-control" name="testo_postit" id="testo_postit" required="required" rows="3"></textarea>
 		</div>		
-		<div><label for="datemin">Data promemoria (non obbligatorio)</label>
+		<div><label for="datemin">Inserisci data promemoria:</label>
 		<input type="date" id="datemin" name="data" min="<%= LocalDate.now() %>">
 	 </div>		
 		<div class="mb-3 my-5">
@@ -37,5 +39,5 @@
 	</form>
 </div>
 
-
+<%@ include file="footerinterno.jsp"%>
 <%@ include file="footer.jsp"%>
