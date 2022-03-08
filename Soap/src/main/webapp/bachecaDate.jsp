@@ -9,9 +9,6 @@
 
 <div class="container">
 	
-		
-	
-	
 	<div class=" text-center gap-2 mx-auto mt-5 mb-5">
 		<a href="bacheca.jsp" class="btn" style="background-color: #FDA65D;">Torna alla bacheca</a>
 	</div>
@@ -77,5 +74,6 @@
 	</div>
 	
 </div>
-	
+
+<%@ include file="footerinterno.jsp"%>
 <%@ include file="footer.jsp"%>
