@@ -3,6 +3,8 @@
 <%@ page import = "model.Utenti" %>
 <% Utenti u = (Utenti)request.getSession().getAttribute("utenteLogin"); %>
 
+<%@ include file="navbar.jsp" %>
+
 <h1 class="text-center" style="margin-top: 100px;">Modifica dati</h1>
 <div class="container" style="width: 500px; margin-top: 20px;">
 	<form class="px-4 py-3" action="dispatcherutente?action=edit" method="POST">
@@ -41,5 +43,5 @@
 </div>
 
 
-
+<%@ include file="footerinterno.jsp"%>
 <%@ include file="footer.jsp"%>
