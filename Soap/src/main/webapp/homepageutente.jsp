@@ -14,10 +14,13 @@
 				<li class="list-group-item" aria-current="true"
 					style="background-color: #FDA65D;">Il mio profilo</li>
 			</h2>
-			<label>Nome</label><li class="list-group-item"><%= u.getNomeUtente() %></li>
-			<label>Cognome</label><li class="list-group-item"><%= u.getCognomeUtente() %></li>
-			<label>Email</label><li class="list-group-item"><%= u.getEmailUtente() %></li>
-			<label>Telefono</label><li class="list-group-item"><%= u.getTelefonoUtente() %></li>
+			<label>Nome: <%= u.getNomeUtente() %></label>
+			<br>
+			<label>Cognome: <%= u.getCognomeUtente() %></label>
+			<br>
+			<label>Email: <%= u.getEmailUtente() %></label>
+			<br>
+			<label>Telefono: <%= u.getTelefonoUtente() %></label>
 		</ul>
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end ">
 			<a href="dispatcherutente?action=edit"><button class="btn btn me-md-2 my-2" type="button"
