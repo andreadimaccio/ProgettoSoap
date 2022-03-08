@@ -1,6 +1,7 @@
 <%@ include file = "header.jsp"%>
 <%@ page import = "java.util.ArrayList" %>
 <%@ page import = "model.Utenti" %>
+<%@ include file ="navbarAdmin.jsp" %>
 
 <% ArrayList<Utenti> listaNuoviUtenti = (ArrayList<Utenti>) request.getAttribute("nuoviutenti"); %>
 <div class="container my-3">
