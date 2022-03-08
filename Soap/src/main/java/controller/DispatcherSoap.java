@@ -27,9 +27,7 @@ public class DispatcherSoap extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getServletContext().getNamedDispatcher("GestioneAggiuntaSoap").include(request, response);
-		
-		
+		request.getServletContext().getNamedDispatcher("GestioneAggiuntaSoap").include(request, response);		
 		request.getServletContext().getRequestDispatcher("/bacheca.jsp").forward(request, response);		
 	}
 

@@ -72,15 +72,17 @@ public class GestioneAggiuntaSoap extends HttpServlet {
 		
 			
 			ArrayList<Postit> allPostitUtente = getAllPostitUtente(utente.getEmailUtente(), utente.getPasswordUtente());
-			System.out.println(allPostitUtente.size());
 			
-			request.setAttribute("allPostit", allPostitUtente);
+			
+			request.getSession().setAttribute("allPostit", allPostitUtente);
 			
 			
 			
 		}
 	}	
 	private void addSoapit(Postit soap) {
+		emf = Persistence.createEntityManagerFactory("Soap");
+		em = emf.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(soap);
 		em.getTransaction().commit();		
@@ -100,7 +102,9 @@ public class GestioneAggiuntaSoap extends HttpServlet {
     	return c;
 	}
 	
-	public ArrayList<Postit> getAllPostitUtente(String email, String password) {
+	private ArrayList<Postit> getAllPostitUtente(String email, String password) {
+		EntityManagerFactory emf= Persistence.createEntityManagerFactory("Soap");
+	    EntityManager em= emf.createEntityManager();
 		Query q = em.createQuery("SELECT u From Utenti u WHERE u.emailUtente = :param AND u.passwordUtente = :param1 ");
 		q.setParameter("param", email);
 		q.setParameter("param1", password);

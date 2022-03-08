@@ -37,6 +37,8 @@ public class GestioneAdmin extends HttpServlet {
 	}
 	
 	private ArrayList<Utenti> getAllUtentiInattivi() {
+		EntityManagerFactory emf= Persistence.createEntityManagerFactory("Soap");
+	    EntityManager em= emf.createEntityManager();
 		Query q = em.createQuery("SELECT u FROM Utenti u WHERE u.accettato = " + false);
 		ArrayList<Utenti> lista = new ArrayList<Utenti>();
 		for (Object o : q.getResultList()) {
@@ -45,15 +47,59 @@ public class GestioneAdmin extends HttpServlet {
 		}
 		return lista;
 	}
+	
+	public void setAccettatoAdmin(int id) {
+		Utenti u = null;    	
+		try {		    						
+			Query q = em.createQuery("SELECT u FROM Utenti u WHERE u.idUtente = :param ");
+			q.setParameter("param", id);
+			u = (Utenti) q.getSingleResult();
+			u.setAccettato(true);
+			em.getTransaction().begin();
+			em.persist(u);
+			em.getTransaction().commit();
+		}
+		catch(Exception e){  		
+		}
+	}
+	
+	public void removeUtente(int id) {
+		Utenti u = null;    	
+		try {		    						
+			Query q = em.createQuery("SELECT u FROM Utenti u WHERE u.idUtente = :param ");
+			q.setParameter("param", id);
+			u = (Utenti) q.getSingleResult();
+			em.getTransaction().begin();
+			em.remove(u);
+			em.getTransaction().commit();
+		}
+		catch(Exception e){  		
+		}
+	}
+	
+	public Utenti getUtente(int id) {
+		Utenti u = null;    	
+		try {		    			
+			Query q = em.createQuery("SELECT u FROM Utenti u WHERE u.idUtente = :param ");
+			q.setParameter("param", id);
+			u = (Utenti) q.getSingleResult();		
+		}
+		catch(Exception e){  		
+		}
+		return u;
+	}
 
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		utentiDaInserire = getAllUtentiInattivi();
 		if(request.getParameter("aggiungi") != null) {
-			utentiDaInserire.get(Integer.parseInt("aggiungi")).setAccettato(true);
-			utentiDaInserire.remove(Integer.parseInt("aggiungi"));
+			int aggiungi = Integer.parseInt(request.getParameter("aggiungi"));		
+			setAccettatoAdmin(aggiungi);			
+			utentiDaInserire = getAllUtentiInattivi();
 		}
 		else if(request.getParameter("rifiuta") != null) {
-			utentiDaInserire.remove(Integer.parseInt("rifiuta"));
+			int rifiuta = Integer.parseInt(request.getParameter("rifiuta"));
+			removeUtente(rifiuta);
+			utentiDaInserire = getAllUtentiInattivi();
 		}
 		utentiDaInserire = getAllUtentiInattivi();
 		request.setAttribute("nuoviutenti", utentiDaInserire);

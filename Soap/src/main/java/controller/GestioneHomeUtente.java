@@ -40,14 +40,9 @@ public class GestioneHomeUtente extends HttpServlet {
    	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Utenti u = (Utenti)request.getSession().getAttribute("utenteLogin");
-		
-		
+		Utenti u = (Utenti)request.getSession().getAttribute("utenteLogin");				
 		postitDataOggi = cercaPerDataOdierna(u.getEmailUtente(), u.getPasswordUtente()) ;
-		request.setAttribute("postitOggi", postitDataOggi);
-		
-		
-		
+		request.getSession().setAttribute("postitOggi", postitDataOggi);		
 	}
 
 	
@@ -56,7 +51,10 @@ public class GestioneHomeUtente extends HttpServlet {
 	}
 	
 	private ArrayList<Postit> cercaPerDataOdierna(String email, String password) {
+		
 		ArrayList<Postit> listaData = new ArrayList<Postit>();
+		EntityManagerFactory emf= Persistence.createEntityManagerFactory("Soap");
+	    EntityManager em= emf.createEntityManager();
 		
 		Query q = em.createQuery("SELECT u From Utenti u WHERE u.emailUtente = :param AND u.passwordUtente = :param1 ");
 		q.setParameter("param", email);

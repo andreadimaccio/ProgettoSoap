@@ -50,24 +50,25 @@ public class GestioneRicercaPostit extends HttpServlet {
 			Utenti u = (Utenti)request.getSession().getAttribute("utenteLogin");
 			String titolo = request.getParameter("titolo_cercato");
 			postitRicercaTitolo = cercaPerTitolo(u.getEmailUtente(), u.getPasswordUtente(), titolo);
-			request.setAttribute("postitTitoli", postitRicercaTitolo);
+			request.getSession().setAttribute("postitTitoli", postitRicercaTitolo);
 			
 			
 		}
-		else if(request.getParameter("ricerca").equals("cercadata")) {
-			
+		else if(request.getParameter("ricerca").equals("cercadata")) {			
 				Utenti u = (Utenti)request.getSession().getAttribute("utenteLogin");
 				String data = request.getParameter("data_cercata");
 				Date dataPromemoria = Date.valueOf(data);
 				postitRicercaData = cercaPerData(u.getEmailUtente(), u.getPasswordUtente(), dataPromemoria);
-				request.setAttribute("postitDate", postitRicercaData);
+				request.getSession().setAttribute("postitDate", postitRicercaData);
 
 		}
 	}
 	
 	public ArrayList<Postit> cercaPerTitolo(String email, String password, String titolo) {
 		ArrayList<Postit> listaTitoli = new ArrayList<Postit>();
-		
+		EntityManagerFactory emf= Persistence.createEntityManagerFactory("Soap");
+	    EntityManager em= emf.createEntityManager();
+	    
 		Query q = em.createQuery("SELECT u From Utenti u WHERE u.emailUtente = :param AND u.passwordUtente = :param1 ");
 		q.setParameter("param", email);
 		q.setParameter("param1", password);
@@ -87,6 +88,8 @@ public class GestioneRicercaPostit extends HttpServlet {
 	
 	public ArrayList<Postit> cercaPerData(String email, String password, Date data) {
 		ArrayList<Postit> listaData = new ArrayList<Postit>();
+		EntityManagerFactory emf= Persistence.createEntityManagerFactory("Soap");
+	    EntityManager em= emf.createEntityManager();
 		
 		Query q = em.createQuery("SELECT u From Utenti u WHERE u.emailUtente = :param AND u.passwordUtente = :param1 ");
 		q.setParameter("param", email);
@@ -96,14 +99,11 @@ public class GestioneRicercaPostit extends HttpServlet {
 		lista.addAll(u.getPostits());
 		if (lista != null && lista.size() > 0) {
 		for (Postit p : lista) {
-				if (p.getDataPromemoria().compareTo(data) == 0) {
+				if (p.getDataInserimento().compareTo(data) == 0) {
 					listaData.add(p);
 				}
 			}	
-		}
-		
+		}		
 		return listaData;
 	}
-	
-
 }

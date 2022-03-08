@@ -19,7 +19,7 @@ public class DispatcherEditRemove extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("remove") != null ) {
-			request.getServletContext().getNamedDispatcher("GestioneEditSoap").include(request, response);
+		
 			request.getServletContext().getNamedDispatcher("GestioneSoap").include(request, response);
 			request.getServletContext().getRequestDispatcher("/bacheca.jsp").forward(request, response);
 		}
@@ -31,7 +31,7 @@ public class DispatcherEditRemove extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("editpostit") != null) {
-			request.getServletContext().getNamedDispatcher("GestioneEditSoap").include(request, response);
+			
 			request.getServletContext().getNamedDispatcher("GestioneSoap").include(request, response);
 			request.getServletContext().getRequestDispatcher("/bacheca.jsp").forward(request, response);
 		}

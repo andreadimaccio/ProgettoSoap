@@ -19,8 +19,8 @@ public class DispatcherUtente extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
-		if(action != null && action.equals("logout")) {			
-			request.getSession().setAttribute("utentelogin", null);
+		if(action != null && action.equals("logout")) {						
+			request.getSession().invalidate();
 			response.sendRedirect("dispatchergenerale");
 		} 
 		else if(action != null && action.equals("edit")) {

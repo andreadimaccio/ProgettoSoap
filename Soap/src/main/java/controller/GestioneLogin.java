@@ -54,13 +54,16 @@ public class GestioneLogin extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String email = request.getParameter("email_utente");
 		String password = request.getParameter("password_utente");
 		if(request.getSession().getAttribute("utenteLogin") == null){
 			if(!email.trim().equals("") && !password.trim().equals("")) {
 				Utenti u = getUtenteLogin(email, password);
 				HttpSession session = request.getSession();
-				session.setAttribute("utenteLogin", u);	
+				if(u.getAccettato()) {
+					session.setAttribute("utenteLogin", u);	
+				}
 			}						
 		}
 		else {			
