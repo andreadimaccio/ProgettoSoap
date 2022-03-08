@@ -15,7 +15,7 @@
 			<div class="row">
 				<div class="col position-relative">
 					<div class="border  w-75 position-absolute start-0">
-						<form action="dispatcherricerca=cercatitolo" method="">
+						<form action="dispatcherricerca?ricerca=cercatitolo" method="POST">
 							<button type="submit" class="btn my-2 form-control text-center" style="background-color: #FDA65D;">Cerca per titolo</button>
 						 	<input type="text" name="titolo_cercato" class="form-control" placeholder="Inserisci il titolo da cercare..." required="required"> 
 						</form>
@@ -28,7 +28,7 @@
 				
 				<div class="col position-relative">
 					<div class="border  w-75 position-absolute end-0">
-						<form action="dispatcherricerca=cercadata" method="">
+						<form action="dispatcherricerca?ricerca=cercadata" method="POST">
 							<button type="submit" class="btn my-2 float-end form-control text-center" style="background-color: #FDA65D;">Cerca per data di inserimento</button>
 							<input type="date" name="data_cercata" class="form-control" required="required"> 
 						</form>
@@ -44,7 +44,7 @@
 		<div class="grid">
 			<div class="row row-cols-4">
 				<% for (Postit elemento : lista) { %>
-					<div class="card text-dark mb-3 soapit overflow-auto col border-0">
+					<div class="card text-dark mb-4 soapit overflow-auto col border-0">
 						<div class="card-header sticky-top <%= elemento.getCategorie().getColoreCategoria() %>">
 							<div class="titolo_cliccabile">
 								<div class="btn-group">
@@ -56,9 +56,9 @@
 									  	<li><a href="dispatchereditremove?remove=<%= elemento.getIdPostit()%>"class="btn btn-danger btn-sm mx-1" role="button"><i class="bi bi-trash"></i> </a> Elimina</li>
 									  </ul>
 								</div>
-								<p role="button" data-bs-toggle="modal" data-bs-target="#modalsoapit<%= elemento.getIdPostit() %>" style ="display: inline">
+								<h5 role="button" data-bs-toggle="modal" data-bs-target="#modalsoapit<%= elemento.getIdPostit() %>" style ="display: inline">
 									<%= elemento.getTitoloPostit() %>
-								</p>
+								</h5>
 							</div>		 
 						</div>
 						<div class="card-body <%= elemento.getCategorie().getColoreCategoria() %>_chiaro" style="min-height: 260px;">
