@@ -71,15 +71,7 @@ public class GestioneSoap extends HttpServlet {
 
 			String titolo = request.getParameter("titolo_postit");
 			String testo = request.getParameter("testo_postit");
-			
-			String data;
-			if(request.getParameter("data").equals("") || request.getParameter("data") == null) {
-				data = "2000-01-01";
-			}
-			else {
-				data = request.getParameter("data");
-			}
-			
+			String data = request.getParameter("data_promemoria");
 			Date dataInserimento = Date.valueOf(LocalDate.now());
 			Date dataPromemoria = Date.valueOf(data);
 
@@ -98,6 +90,8 @@ public class GestioneSoap extends HttpServlet {
 
 			}
 		}
+		request.getSession().removeAttribute("allPostit");
+		ArrayList<Postit> allPostitUtente = new ArrayList<Postit>();
 		allPostitUtente.addAll(getAllPostitUtente(u.getEmailUtente(), u.getPasswordUtente()));
 
 		request.getSession().setAttribute("allPostit", allPostitUtente);
