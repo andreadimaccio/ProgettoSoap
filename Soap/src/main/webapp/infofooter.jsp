@@ -8,8 +8,9 @@
 				class="nav-link px-2 text-muted">Accedi</a></li>
 			<li class="nav-item"><a
 				href="dispatchergenerale?action=registrazione"
-				class="nav-link px-2 text-muted">Registati</a></li>
+				class="nav-link px-2 text-muted">Registrati</a></li>
+			<li class="nav-item"><a class="btn nav-link px-2 text-muted" id="btn-back-to-top">Torna su</a></li>
 		</ul>
-		<p class="text-center text-muted">© 2022 Soap-it_Company, Inc</p>
+		<p class="text-center text-muted">2022 Soap-it_Company, Inc</p>
 	</footer>
 </div>
