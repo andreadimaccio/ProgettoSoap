@@ -71,7 +71,15 @@ public class GestioneSoap extends HttpServlet {
 
 			String titolo = request.getParameter("titolo_postit");
 			String testo = request.getParameter("testo_postit");
-			String data = request.getParameter("data_promemoria");
+			
+			String data;
+			if(request.getParameter("data").equals("") || request.getParameter("data") == null) {
+				data = "2000-01-01";
+			}
+			else {
+				data = request.getParameter("data");
+			}
+			
 			Date dataInserimento = Date.valueOf(LocalDate.now());
 			Date dataPromemoria = Date.valueOf(data);
 
