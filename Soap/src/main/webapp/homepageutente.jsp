@@ -44,9 +44,9 @@
 									  	<li><a href="dispatchereditremove?remove=<%= elemento.getIdPostit()%>"class="btn btn-danger btn-sm mx-1" role="button"><i class="bi bi-trash"></i> </a> Elimina</li>
 									  </ul>
 								</div>
-								<p role="button" data-bs-toggle="modal" data-bs-target="#modalsoapit<%= elemento.getIdPostit() %>" style ="display: inline">
+								<h5 role="button" data-bs-toggle="modal" data-bs-target="#modalsoapit<%= elemento.getIdPostit() %>" style ="display: inline">
 									<%= elemento.getTitoloPostit() %>
-								</p>
+								</h5>
 							</div>		 
 						</div>
 						<div class="card-body <%= elemento.getCategorie().getColoreCategoria() %>_chiaro" style="min-height: 260px;">
