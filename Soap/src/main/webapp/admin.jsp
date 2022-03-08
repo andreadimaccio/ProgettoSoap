@@ -28,4 +28,6 @@
 		</tbody>
 	</table>
 </div>
+
+<%@ include file ="footerAdmin.jsp"%>
 <%@ include file="footer.jsp"%>
